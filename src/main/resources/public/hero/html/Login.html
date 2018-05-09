@@ -6,16 +6,19 @@
 <meta name="viewport" content="width=device-width">
 <link href="../css/base.css" rel="stylesheet" type="text/css">
 <link href="../css/login.css" rel="stylesheet" type="text/css">
+
+<script src='../js/jquery-3.3.1.min.js'></script>
+<script src="../js/login.js"></script>
 </head>
 <body>
 
 <div class="login">
-<form action="" method="post" id="form">
+<!--<form action="" method="post" id="form">-->
 	<div class="logo"></div>
     <div class="login_form">
     	<div class="user">
-        	<input class="text_value" value="" name="username" type="text" id="username">
-            <input class="text_value" value="" name="password" type="password" id="password">
+        	<input class="text_value" name="account" type="text" id="account" required="required" placeholder="请输入用户名">
+            <input class="text_value" name="password" type="password" id="password" required="required" placeholder="请输入密码">
         </div>
         <button class="button" id="submit" type="submit">登录</button>
     </div>
@@ -24,7 +27,7 @@
     <div class="foot">
     Copyright (c) 2018 Single-hero
     </div>
-    </form>
+    <!--</form>-->
 </div>
 </body>
 </html>
