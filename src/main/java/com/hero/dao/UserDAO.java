@@ -1,5 +1,6 @@
 package com.hero.dao;
 
+import com.hero.dao.impl.UserDaoImpl;
 import com.hero.po.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
@@ -15,7 +16,7 @@ import java.util.List;
  */
 
 @Repository
-public class UserDAO {
+public class UserDAO implements UserDaoImpl {
 
     //注入jdcb驱动
     @Autowired
