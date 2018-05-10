@@ -22,14 +22,14 @@ public class ResultMsg {
     //内容信息
     String msg;
 
-    //有结果信息返回
+    //成功返回信息
     public ResultMsg(Code state, Object result, String msg) {
         super();
         this.state = state;
         this.result = result;
         this.msg = msg;
     }
-    //没有结果信息返回
+    //失败返回信息
     public ResultMsg(Code state, String msg) {
         super();
         this.state = state;
