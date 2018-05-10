@@ -1,13 +1,10 @@
 package com.hero.controller;
 
-import com.hero.po.User;
-import com.hero.service.UserService;
+import com.hero.service.impl.UserServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
-
-import java.util.List;
 
 
 /**
@@ -21,12 +18,11 @@ import java.util.List;
 public class UserController {
 
     @Autowired
-    UserService userService;
+    UserServiceImpl userServiceimpl;
 
     //User查询表所有数据
     @RequestMapping(value = "/select")
-    public @ResponseBody List<User> SelectUser(){
-        List<User>list=userService.SelectUser();
-        return list;
+    public @ResponseBody String SelectUser(){
+        return userServiceimpl.SelectUser().toString();
     }
 }
