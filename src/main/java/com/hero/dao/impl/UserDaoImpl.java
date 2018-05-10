@@ -18,7 +18,8 @@ public interface UserDaoImpl {
     List<User> SelectUser();
 
 
-    //
+    //向数据库添加信息
+    Integer InsertUser(User user);
 
 }
 

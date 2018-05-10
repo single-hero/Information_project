@@ -25,4 +25,10 @@ public class UserController {
     public @ResponseBody String SelectUser(){
         return userServiceimpl.SelectUser().toString();
     }
+
+//    //User查询表所有数据
+//    @RequestMapping(value = "/insert")
+//    public @ResponseBody String InsertUser(){
+//        return userServiceimpl.InsertUser().toString();
+//    }
 }

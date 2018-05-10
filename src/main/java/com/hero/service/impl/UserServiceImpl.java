@@ -1,5 +1,6 @@
 package com.hero.service.impl;
 
+import com.hero.po.User;
 import com.hero.util.ResultMsg;
 
 /**
@@ -15,4 +16,12 @@ public interface UserServiceImpl {
      * @return
      */
     ResultMsg SelectUser();
+
+
+    /**
+     * 添加用户
+     * @param user
+     * @return
+     */
+    ResultMsg InsertUser(User user);
 }
