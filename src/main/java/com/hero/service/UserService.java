@@ -7,6 +7,13 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+
+/**
+ * 业务逻辑-用户
+ * @author hero
+ * @time 2018.05.05
+ */
+
 @Service
 public class UserService {
 

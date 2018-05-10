@@ -9,6 +9,13 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.List;
 
+
+/**
+ * 接口层-用户
+ * @author hero
+ * @time 2018.05.09
+ */
+
 @Controller
 @RequestMapping(value = "/User")
 public class UserController {
