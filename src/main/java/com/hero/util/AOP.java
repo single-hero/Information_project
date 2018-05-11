@@ -53,7 +53,7 @@ public class AOP{
         // 记录下请求内容
         logger.info("URL : " + request.getRequestURL().toString());
         logger.info("HTTP_METHOD : " + request.getMethod());
-        logger.info("IP : " + request.getHeader("X-Real-IP"));
+        logger.info("IP : " + GetIp.getIpAddr(request));
         logger.info("CLASS_METHOD : " + point.getSignature().getDeclaringTypeName() + "." + point.getSignature().getName());
         logger.info("ARGS : " + Arrays.toString(point.getArgs()));
     }
