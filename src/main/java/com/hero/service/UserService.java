@@ -63,7 +63,7 @@ public class UserService implements UserServiceImpl{
 //            User user = JSONObject.toJavaObject(jsonObject, User.class);// 将建json对象转换为class对象
             user.setAddtime(new Date());
             user.setUptime(new Date());
-            System.out.println(new Date());
+
             //操作处理
             int add=userDAOImpl.InsertUser(user);
             if(add<=0){
