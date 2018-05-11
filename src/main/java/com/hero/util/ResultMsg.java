@@ -5,7 +5,7 @@ import com.alibaba.fastjson.JSONObject;
 /**
  * 返回数据格式
  * @author hero
- * @time 2018.05.010
+ * @time 2018.05.10
  */
 
 public class ResultMsg {

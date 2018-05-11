@@ -16,7 +16,7 @@ import java.util.Date;
 @DatabaseTableName("userbo")
 public class User {
     private Integer id;
-    private Integer state;
+    private String state;
     private String account;
     private String password;
 
@@ -36,11 +36,11 @@ public class User {
         this.id = id;
     }
 
-    public Integer getState() {
+    public String getState() {
         return state;
     }
 
-    public void setState(Integer state) {
+    public void setState(String state) {
         this.state = state;
     }
 

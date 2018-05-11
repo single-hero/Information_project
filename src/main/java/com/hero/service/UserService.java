@@ -59,10 +59,11 @@ public class UserService implements UserServiceImpl{
     @Override
     public ResultMsg InsertUser(User user){
         try{
-            //获取当前时间
-//        DateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+            // 参数处理
+//            User user = JSONObject.toJavaObject(jsonObject, User.class);// 将建json对象转换为class对象
             user.setAddtime(new Date());
             user.setUptime(new Date());
+            System.out.println(new Date());
             //操作处理
             int add=userDAOImpl.InsertUser(user);
             if(add<=0){
