@@ -8,7 +8,7 @@ import java.util.Date;
 
 /**
  * 实体类-用户
- * @author hero
+ * @author chenwenwei
  * @time 2018.05.05
  */
 

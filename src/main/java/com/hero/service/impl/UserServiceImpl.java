@@ -5,7 +5,7 @@ import com.hero.util.ResultMsg;
 
 /**
  * 业务逻辑接口-用户
- * @author hero
+ * @author chenwenwei
  * @time 2018.05.05
  */
 

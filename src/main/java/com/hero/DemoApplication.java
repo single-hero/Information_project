@@ -5,7 +5,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 /**
  * 启动初始化
- * @author hero
+ * @author chenwenwei
  * @time 2018.05.05
  */
 @SpringBootApplication

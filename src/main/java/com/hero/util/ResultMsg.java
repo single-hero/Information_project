@@ -4,7 +4,7 @@ import com.alibaba.fastjson.JSONObject;
 
 /**
  * 返回数据格式
- * @author hero
+ * @author chenwenwei
  * @time 2018.05.10
  */
 

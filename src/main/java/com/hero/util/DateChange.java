@@ -3,7 +3,7 @@ package com.hero.util;
 
 /**
  * sql-util.Date互相转换
- * @author hero
+ * @author chenwenwei
  * @time 2018.05.11
  */
 public class DateChange {

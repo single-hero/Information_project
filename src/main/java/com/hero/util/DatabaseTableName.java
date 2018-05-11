@@ -6,8 +6,8 @@ import java.lang.annotation.*;
 
  * @ClassName: DatabaseTableName
  * @Description: 读取表名
- * @author: hero
- * @date: 2017年5月5日
+ * @author: chenwenwei
+ * @date: 2018.05.05
 
 
  */
