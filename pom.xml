@@ -123,6 +123,14 @@
 			<version>1.2.32</version>
 		</dependency>
 
+		<!--json-->
+		<dependency>
+			<groupId>net.sf.json-lib</groupId>
+			<artifactId>json-lib</artifactId>
+			<version>2.2.3</version>
+			<classifier>jdk15</classifier><!-- jdk版本 -->
+		</dependency>
+
 
 		<!--mysql jdbc驱动-->
 		<!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
