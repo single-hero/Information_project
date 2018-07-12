@@ -1,6 +1,7 @@
 package com.hero.util;
 
 
+import com.alibaba.fastjson.JSONObject;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.AfterReturning;
 import org.aspectj.lang.annotation.Around;
@@ -37,26 +38,39 @@ public class AOP{
     public void Service_Aop(){
 
     }
-
+    
 
     //切入逻辑
     @Around("Controller_Aop()")
     public Object Controller(ProceedingJoinPoint point) throws Throwable {
+
         System.out.println();
         logger.info("**********Controller切面Strat**********");
         // 接收到请求，记录请求内容
         ServletRequestAttributes attributes = (ServletRequestAttributes) RequestContextHolder.getRequestAttributes();
         HttpServletRequest request = attributes.getRequest();
 
+//        String param=HttpCoder.GetParamPost(request.getInputStream());
+//
+//        request.setAttribute("jsonObject",param);
+//        System.out.println(param);
+
+
+        int num1=2;
+        int num2=10;
+        int num3=num1--+num2;
+        int num4=num1+num2;
+
+        logger.info("num3:"+num3+"num4:"+num4);
         // 记录下请求内容
-        logger.info("URL : " + request.getRequestURL().toString());
-        logger.info("HTTP_METHOD : " + request.getMethod());
-        logger.info("IP : " + GetIp.getIpAddr(request));
-        logger.info("CLASS_METHOD : " + point.getSignature().getDeclaringTypeName() + "." + point.getSignature().getName());
+        logger.info("请求url : " + request.getRequestURL().toString());//URL
+        logger.info("请求方式 : " + request.getMethod());//HTTP_METHOD
+        logger.info("请求ip  : " + GetIp.getIpAddr(request));//IP
+        logger.info("调用方法 : " + point.getSignature().getDeclaringTypeName() + "." + point.getSignature().getName());//CLASS_METHOD
         logger.info("ARGS : " + Arrays.toString(point.getArgs()));
         //执行参数
         Object object=point.proceed(point.getArgs());
-        logger.info("**********Controller切面End**********");
+        logger.info("**********Controller切面End************");
         return object;
     }
 
@@ -67,7 +81,13 @@ public class AOP{
         System.out.println();
         logger.info("**********结果返回Start**********");
         logger.info("RESPONSE : " + ret);
-        logger.info("**********结果返回End**********");
+        //将获取的Object类型转换成JSON格式对象
+        Object object=JSONObject.toJSON(ret);
+        //然后在将JSON格式对象,转换成JSON对象
+//        JSONObject jsonObject=JSONObject.parseObject(object.toString());
+//        logger.info("解析后的数据:"+jsonObject);
+        logger.info("**********结果返回End************");
 
     }
+
 }

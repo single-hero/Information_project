@@ -18,7 +18,6 @@ public class TestController {
 //    private final Logger logger= LoggerFactory.getLogger(this.getClass());
 //    @Autowired()
 //    private User user;
-
     @RequestMapping
     public @ResponseBody String index(){
         return "HelloWorld";

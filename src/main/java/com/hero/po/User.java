@@ -17,6 +17,7 @@ import java.util.Date;
 public class User {
     private Integer id;
     private String state;
+    @JSONField(name = "account")
     private String account;
     private String password;
 
