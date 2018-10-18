@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping(value = "/test")
-public class TestController {
+public class TestController extends BaseController{
     //日志开启
 //    private final Logger logger= LoggerFactory.getLogger(this.getClass());
 //    @Autowired()
@@ -29,6 +29,7 @@ public class TestController {
         User user=new User();
         user.setAccount("name");
         user.setPassword("密码");
+        logger.info("测试");
         return user;
     }
 }
