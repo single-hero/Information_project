@@ -15,29 +15,42 @@ public class ResultMsg {
         Success,Error
     }
 
-    //状态码
+    //状态
     Code state;
+    //状态码
+    String stateCode;
     //结果集
     Object result;
     //内容信息
     String msg;
 
+
     //成功返回信息
-    public ResultMsg(Code state, Object result, String msg) {
+    public ResultMsg(Code state,String stateCode ,String msg,Object result) {
         super();
         this.state = state;
-        this.result = result;
+        this.stateCode=stateCode;
         this.msg = msg;
+        this.result = result;
     }
     //失败返回信息
-    public ResultMsg(Code state, String msg) {
+    public ResultMsg(Code state,String stateCode, String msg) {
         super();
         this.state = state;
-        this.result = new Object();
+        this.stateCode=stateCode;
         this.msg = msg;
+        this.result = new Object();
     }
 
+
     //getter and setter
+    public String getStateCode() {
+        return stateCode;
+    }
+
+    public void setStateCode(String stateCode) {
+        this.stateCode = stateCode;
+    }
     public Code getState() {
         return state;
     }
@@ -65,11 +78,11 @@ public class ResultMsg {
 
     @Override
     public String toString(){
-
         JSONObject json=new JSONObject();
         json.put("state",state);
-        json.put("result",result);
+        json.put("stateCode",stateCode);
         json.put("msg",msg);
+        json.put("result",result);
         return json.toString();
     }
 }

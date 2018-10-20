@@ -91,7 +91,7 @@ public class AOP extends BaseController{
 
         //实例化中文转换工具
         ChineseUtill chineseUtill=new ChineseUtill();
-        logger.info("转换后:"+chineseUtill.toChinese(data));
+//        logger.info("转换后:"+chineseUtill.toChinese(data));
 
         //执行参数
         Object object=point.proceed(point.getArgs());
