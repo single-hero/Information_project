@@ -88,6 +88,7 @@ public class AOP extends BaseController{
         logger.info("调用方法 : " + point.getSignature().getDeclaringTypeName() + "." + point.getSignature().getName());//CLASS_METHOD
         logger.info("请求参数 : " + data.toString());
         logger.info("ARGS : " + point.getArgs());
+        logger.info("客户端信息:" +UserClient.UserAgent(request));
 
         //实例化中文转换工具
         ChineseUtill chineseUtill=new ChineseUtill();

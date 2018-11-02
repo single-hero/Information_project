@@ -150,6 +150,14 @@
 			<artifactId>jpush-client</artifactId>
 			<version>3.3.4</version>
 		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/nl.bitwalker/UserAgentUtils -->
+		<dependency>
+			<groupId>eu.bitwalker</groupId>
+			<artifactId>UserAgentUtils</artifactId>
+			<version>1.20</version>
+		</dependency>
+
 	</dependencies>
 
 
