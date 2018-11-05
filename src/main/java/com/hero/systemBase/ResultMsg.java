@@ -1,4 +1,4 @@
-package com.hero.util;
+package com.hero.systemBase;
 
 import com.alibaba.fastjson.JSONObject;
 

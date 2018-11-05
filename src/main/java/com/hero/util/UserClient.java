@@ -8,6 +8,12 @@ import javax.servlet.http.HttpServletRequest;
 import java.util.ArrayList;
 import java.util.List;
 
+
+/**
+ * 用户代理
+ * @author chenwenwei
+ * @time 2018.11.02
+ */
 public final class UserClient {
 
     public final static List UserAgent(HttpServletRequest request){

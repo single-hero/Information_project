@@ -16,7 +16,11 @@ import cn.jpush.api.push.model.notification.Notification;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-
+/**
+ * 极光推送工具类
+ * @author chenwenwei
+ * @time 2018.11.03
+ */
 public class JdpushUtil {
 	 protected static final Logger LOG = LoggerFactory.getLogger(JdpushUtil.class);
 	 // demo App defined in resources/jpush-api.conf 
@@ -24,7 +28,7 @@ public class JdpushUtil {
 	 public static final String TITLE = "chenwenwei";
 	 public static final String ALERT = "Calling";
 	 public static final String MSG_CONTENT = "chenwenwei";
-	 public static final String REGISTRATION_ID = "1a0018970af51e769de";
+	 public static final String REGISTRATION_ID = "1114a89792f1162afc1";
 	 public static final String TAG = "tag_api";
 	        
 	  public  static JPushClient jpushClient=null;
@@ -72,7 +76,7 @@ public class JdpushUtil {
 	  public static PushPayload buildPushObject_all_alias_alert() {
 		  return PushPayload.newBuilder()
 				  .setPlatform(Platform.all())//设置接受的平台  160a3797c8509bfbc65
-				  .setAudience(Audience.registrationId("1a0018970af51e769de"))//Audience设置为all，说明采用广播方式推送，所有用户都可以接收到  140fe1da9e812a5776b
+				  .setAudience(Audience.registrationId("1114a89792f1162afc1"))//Audience设置为all，说明采用广播方式推送，所有用户都可以接收到  140fe1da9e812a5776b
 				  .setNotification(Notification.alert(ALERT))
 				  .build();
 	  }

@@ -8,6 +8,11 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
+/**
+ * 极光推送测试
+ * @author chenwenwei
+ * @time 2018.11.01
+ */
 @RunWith(SpringRunner.class)
 @SpringBootTest(classes = Application.class)
 public class JdpushTest {

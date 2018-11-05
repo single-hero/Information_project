@@ -1,6 +1,6 @@
 package com.hero.controller;
 
-import com.hero.util.PageData;
+import com.hero.systemBase.PageData;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.context.request.RequestContextHolder;

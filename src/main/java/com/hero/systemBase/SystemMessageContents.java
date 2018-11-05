@@ -1,4 +1,4 @@
-package com.hero.util;
+package com.hero.systemBase;
 
 /**
  * 系统接口(终端使用)通讯消息常量定义

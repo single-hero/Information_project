@@ -1,4 +1,4 @@
-package com.hero.util;
+package com.hero.systemBase;
 
 import net.sf.json.JSONException;
 import net.sf.json.JSONObject;
@@ -11,6 +11,11 @@ import java.util.Iterator;
 import java.util.Map;
 import java.util.Set;
 
+/**
+ * 获取请求信息
+ * @author chenwenwei
+ * @time 2018.11.03
+ */
 public class PageData extends HashMap implements Map {
 
     private static final long serialVersionUID = 1L;

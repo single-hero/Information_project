@@ -1,7 +1,7 @@
 package com.hero.service.impl;
 
 import com.hero.po.User;
-import com.hero.util.ResultMsg;
+import com.hero.systemBase.ResultMsg;
 
 /**
  * 业务逻辑接口-用户
