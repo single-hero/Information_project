@@ -1,7 +1,7 @@
 package com.hero.po;
 
 import com.alibaba.fastjson.annotation.JSONField;
-import com.hero.util.DatabaseTableName;
+import com.hero.systemBase.DatabaseTableName;
 
 import java.util.Date;
 

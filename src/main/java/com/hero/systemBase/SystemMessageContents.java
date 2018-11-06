@@ -1,4 +1,4 @@
-package com.hero.util;
+package com.hero.systemBase;
 
 /**
  * 系统接口(终端使用)通讯消息常量定义
@@ -9,8 +9,6 @@ public class SystemMessageContents {
 
 	/**
 	 * 错误码
-	 * 
-	 * @author Administrator
 	 * 
 	 */
 	public static class ErrorCode {
@@ -74,12 +72,6 @@ public class SystemMessageContents {
 		public static final int MESSAGE_APP_JPUSH_IS_EXSITS = 405; // 激光已经注册
 
 		/**
-		 * 发卡相关的错误码
-		 */
-		public static final int CARD_HAS_USER = 411;// 该卡已经发过，请换新卡
-		public static final int CARD_IS_TO0MANY = 412;// 每个房屋只能发指定的几张卡
-
-		/**
 		 * ************************用户第三方授权信息相关错误码*******************************
 		 */
 		public static final int MESSAGE_USERS_OTHERS_AUTH_ERROR = 501; // 终端乐谱用户授权错误码
@@ -101,30 +93,6 @@ public class SystemMessageContents {
 		public static final int MESSAGE_PROPERTY_DEVICE_NOT_EXITS = 704;// 根据mac地址无法查询到设备
 		public static final int MESSAGE_PROPERTY_BLOCK_CELL_UNIT_NOT_EXITS = 705;// 没有楼栋单元住户信息
 
-		/**
-		 * ************************开锁相关错误码**************************************
-		 * *****
-		 */
-		public static final int MESSAGE_LOCK_OPENLOCK_ERROR = 801; // 终端设备未授权
-		public static final int MESSAGE_LOCK_KEY_VERIFY_ERROR = 802; // 钥匙验证失败（不存在或者有已失效）
-		public static final int MESSAGE_LOCK_KEY_PWD_ERROR = 803; // 钥匙密码验证失败
-		public static final int MESSAGE_LOCK_DOOR_LOCKCODE_ERROR = 804; // 当前门卡未授权
-		public static final int MESSAGE_LOCK_DOOR_LOCKCODE_NOT_PERMISSONS_ERROR = 805; // 当前门卡沒有权限开门
-
-		/**
-		 * ************************门禁控制勿扰模式相关错误码********************************
-		 * ***********
-		 */
-		public static final int MESSAGE_DISTURB_PARAM_INFO_NOT_EXTIS_ERROR = 901; // 门禁勿扰模式信息有误
-		public static final int MESSAGE_DISTURB_PARAM_INFO_UPDATE_ERROR = 902; // 门禁勿扰模式更新失败
-
-		/**
-		 * ************************人脸相关********************************
-		 * ***********
-		 */
-		public static final int MESSAGE_FACE_NO_BBOX_ERROR = 1101; // 人脸提框不成功
-		public static final int MESSAGE_FACE_RULE_REVIEW_IS_NOT_PASSED = 1102; // 人脸规则审查不通过
-		public static final int MESSAGE_FACE_NOT_FIRST_AND_HAS_DIFFERENCE = 1104; // 本次上传非第一次，且与之前上传的人脸相差大
 	}
 
 	/**
