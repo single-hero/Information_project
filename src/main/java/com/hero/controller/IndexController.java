@@ -16,6 +16,7 @@ import java.io.IOException;
 public class IndexController {
     @RequestMapping("/")
     public void toIndex(HttpServletResponse response) throws IOException {
+//        System.out.println("测试");
         response.sendRedirect("/hero/html/Login.html");
     }
 }
