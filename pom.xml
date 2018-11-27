@@ -42,6 +42,7 @@
 		</dependency>
 
 
+		<!--静态页加载动数据模板引擎-->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-thymeleaf</artifactId>
@@ -100,13 +101,6 @@
 		</dependency>
 
 
-		<!--&lt;!&ndash;aop&ndash;&gt;-->
-		<!--<dependency>-->
-			<!--<groupId>org.springframework.boot</groupId>-->
-			<!--<artifactId>spring-boot-starter-aop</artifactId>-->
-		<!--</dependency>-->
-
-
 		<!--jpa-->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -144,6 +138,7 @@
 			<artifactId>junit</artifactId>
 		</dependency>
 
+
 		<!--极光推送-->
 		<dependency>
 			<groupId>cn.jpush.api</groupId>
@@ -151,6 +146,8 @@
 			<version>3.3.4</version>
 		</dependency>
 
+
+		<!--获取浏览器数据-->
 		<!-- https://mvnrepository.com/artifact/nl.bitwalker/UserAgentUtils -->
 		<dependency>
 			<groupId>eu.bitwalker</groupId>
@@ -158,12 +155,22 @@
 			<version>1.20</version>
 		</dependency>
 
-		<!--json web token-->
+		<!--&lt;!&ndash;json web token&ndash;&gt;-->
+		<!--<dependency>-->
+			<!--<groupId>com.auth0</groupId>-->
+			<!--<artifactId>java-jwt</artifactId>-->
+			<!--<version>3.2.0</version>-->
+		<!--</dependency>-->
+
+
+		<!--shiro-->
+		<!-- https://mvnrepository.com/artifact/org.apache.shiro/shiro-spring -->
 		<dependency>
-			<groupId>com.auth0</groupId>
-			<artifactId>java-jwt</artifactId>
-			<version>3.2.0</version>
+			<groupId>org.apache.shiro</groupId>
+			<artifactId>shiro-spring</artifactId>
+			<version>1.4.0</version>
 		</dependency>
+
 
 		<!--热部署-->
 		<dependency>
