@@ -39,7 +39,7 @@ function diplaytime(){ //时间递减
 }
 function redirect(){ //跳转页
     // $(".text-show").css('display','block');
-    window.location.href="Login.html";//指定要跳转到的目标页面
+    window.location.href="Login.Templates";//指定要跳转到的目标页面
 }
 timer=setInterval('diplaytime()', 1300);//显示时间
 timer=setTimeout('redirect()',time * 1300); //跳转
