@@ -13,7 +13,7 @@ import java.util.Date;
  */
 
 
-@DatabaseTableName("userbo")
+@DatabaseTableName("sys_user")
 public class User {
     private Integer id;
     private String state;
