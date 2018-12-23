@@ -1,6 +1,7 @@
 package com.hero.controller;
 
 import com.hero.po.User;
+import io.swagger.annotations.Api;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -10,7 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
  * @author chenwenwei
  * @time 2018.05.05
  */
-
+@Api(description = "接口测试")
 @RestController
 @RequestMapping(value = "/test")
 public class TestController extends BaseController{
