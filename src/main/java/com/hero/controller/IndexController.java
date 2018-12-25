@@ -3,8 +3,8 @@ package com.hero.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
-import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 /**
@@ -14,9 +14,10 @@ import java.io.IOException;
  */
 @Controller
 public class IndexController {
-    @RequestMapping("/")
-    public void toIndex(HttpServletResponse response) throws IOException {
-//        System.out.println("测试");
-        response.sendRedirect("/hero/Templates/Login.html");
+    @RequestMapping(value = {"/login","/","/index"},method = RequestMethod.GET)
+    public String toIndex() throws IOException {
+//        ModelAndView mv =new ModelAndView("Login");
+//        response.sendRedirect("/hero/templates/Login.html");
+        return "Login";
     }
 }
