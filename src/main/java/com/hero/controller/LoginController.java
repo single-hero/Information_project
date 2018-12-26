@@ -1,18 +1,21 @@
 package com.hero.controller;
 
+import com.alibaba.fastjson.JSONObject;
 import com.hero.systemBase.PageData;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiImplicitParams;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
+
+import javax.servlet.http.HttpServletRequest;
 
 @Api(description = "用户登陆")
 @Controller
-@RequestMapping(value = "/login",method = RequestMethod.GET)
+@RequestMapping(value = "/login")
 public class LoginController extends BaseController{
 
     @ApiOperation(value = "登陆测试",notes = "只是一个测试")
@@ -21,9 +24,18 @@ public class LoginController extends BaseController{
             @ApiImplicitParam(paramType = "query",name = "Password",value = "用户密码",required = true,dataType = "String"),
     })
     @RequestMapping(value = "/test")
-    @ResponseBody
-    public Object test(){
+    public @ResponseBody Object test(){
         PageData pd =this.getPageData();
         return pd;
     }
+
+    //系统登陆校验
+    @PostMapping(value = "/loginCheck")
+    public @ResponseBody Object loginCheck(HttpServletRequest request){
+        JSONObject jsonParam= (JSONObject) request.getAttribute("jsonParam");
+
+        return jsonParam;
+    }
+
+
 }

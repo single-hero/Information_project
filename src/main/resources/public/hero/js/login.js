@@ -1,6 +1,0 @@
-$(function(){
-    $('#loginModal').modal('show');
-})
-
-
-   

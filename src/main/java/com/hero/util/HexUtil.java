@@ -38,7 +38,7 @@ public class HexUtil {
     
     //
     public static void main(String[] args) {
-        String str = "singlehero";
+        String str = "cdsq2018";
         System.out.println("singlehero string : "+str);
 
         String hexEncode = encode(str.getBytes());
