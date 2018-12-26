@@ -25,7 +25,3 @@ function SystemLogin(){
         }
     })
 }
-
-
-
-   

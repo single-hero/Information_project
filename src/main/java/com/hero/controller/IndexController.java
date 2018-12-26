@@ -2,9 +2,11 @@ package com.hero.controller;
 
 
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.GetMapping;
 
+
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
 /**
@@ -14,10 +16,23 @@ import java.io.IOException;
  */
 @Controller
 public class IndexController {
-    @RequestMapping(value = {"/login","/","/index"},method = RequestMethod.GET)
-    public String toIndex() throws IOException {
-//        ModelAndView mv =new ModelAndView("Login");
-//        response.sendRedirect("/hero/templates/Login.html");
-        return "Login";
+    //后台登陆跳转
+    @GetMapping(value ={"/","login","/index"})
+    public String toIndex(HttpServletResponse response) throws IOException {
+//        System.out.println("测试");
+//        response.sendRedirect("/hero/Templates/Login.html");
+        return "/Login";
+    }
+
+    //退出登陆
+    @GetMapping(value = "/logout")
+    public String logout(HttpSession session){
+//        session.removeAttribute();
+        return "";
+    }
+
+    @GetMapping(value = "/error")
+    public String error(){
+        return "/error";
     }
 }

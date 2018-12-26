@@ -68,7 +68,7 @@ public class AOP extends BaseController{
             }catch (Exception e){
                 e.printStackTrace();
                 response.setStatus(501);
-                return "http://localhost/error/501";
+//                return "http://localhost/error/501";
             }
             // 记录下请求内容
             logger.info("请求url : " + request.getRequestURL().toString());//URL

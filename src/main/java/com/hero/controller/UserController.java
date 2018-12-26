@@ -28,6 +28,7 @@ public class UserController {
     //User查询表所有数据
     @RequestMapping(value = "/select" ,method = RequestMethod.GET)
     public @ResponseBody String SelectUser(){
+        
         return userServiceimpl.SelectUser().toString();
     }
 
