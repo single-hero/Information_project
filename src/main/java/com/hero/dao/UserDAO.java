@@ -36,4 +36,22 @@ public class UserDAO implements UserDaoImpl {
         int result=jdbcTemplate.update("insert into userbo(state,account,password,addtime,uptime)value(?,?,?,?,?)",user.getState(),user.getAccount(),user.getPassword(),user.getAddtime(),user.getUptime());
         return result;
     }
+
+
+/*    @Override
+    public List<Map<String, Object>> getByParentpagDao(JSONObject paramJson) {
+//        System.out.println("dao层"+paramJson);
+        return jdbcTemplate.queryForList("SELECT account,name FROM partner_user WHERE parent_pag='" + paramJson.getString("parent_pag") + "' and  state='"+paramJson.getString("state")+"'");
+    }
+
+
+    @Override
+    public String getMaxId() {
+        return jdbcTemplate.queryForObject("SELECT IFNULL(MAX(id),0)+1 FROM partner_user",String.class);
+    }
+
+    @Override
+    public int updateState(String account, Integer state) {
+        return jdbcTemplate.update("UPDATE partner_user SET state = ? WHERE account = ?",state,account);
+    }*/
 }

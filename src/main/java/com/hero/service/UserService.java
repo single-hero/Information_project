@@ -42,9 +42,9 @@ public class UserService implements UserServiceImpl{
             List<User>list=userDAOImpl.SelectUser();
             //判断list为空或者list容器没有内容
             if(list==null ||list.isEmpty()){
-                return new ResultMsg(ResultMsg.Code.Error,"没有相关数据","");
+                return new ResultMsg(ResultMsg.Code.Error,"没有相关数据");
             }
-            return new ResultMsg(ResultMsg.Code.Success, SystemMessageContents.SuccessCode.MESSAGE_SUCCESS_CODE+"","成功",JSONObject.parse(JSONObject.toJSONString(list)));
+            return new ResultMsg(ResultMsg.Code.Success, SystemMessageContents.SuccessCode.MESSAGE_SUCCESS_CODE+"",JSONObject.parse(JSONObject.toJSONString(list)));
         }catch (Exception e){
             logger.error("异常:"+e.toString());
             return new ResultMsg(ResultMsg.Code.Error,SystemMessageContents.ErrorCode.MESSAGE_SERVER_RESPONSE_NULL+"",e.getMessage());

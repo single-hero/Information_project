@@ -26,20 +26,18 @@ public class ResultMsg {
 
 
     //成功返回信息
-    public ResultMsg(Code state,String stateCode ,String msg,Object result) {
+    public ResultMsg(Code state,String msg,Object result) {
         super();
         this.state = state;
-        this.stateCode=stateCode;
         this.msg = msg;
         this.result = result;
     }
     //失败返回信息
-    public ResultMsg(Code state,String stateCode, String msg) {
+    public ResultMsg(Code state,String msg) {
         super();
         this.state = state;
-        this.stateCode=stateCode;
         this.msg = msg;
-        this.result = new Object();
+//        this.result = new Object();
     }
 
 
@@ -80,7 +78,6 @@ public class ResultMsg {
     public String toString(){
         JSONObject json=new JSONObject();
         json.put("state",state);
-        json.put("stateCode",stateCode);
         json.put("msg",msg);
         json.put("result",result);
         return json.toString();

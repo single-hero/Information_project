@@ -71,6 +71,7 @@ public class AESUtil {
         cipher.init(Cipher.DECRYPT_MODE, skeySpec, iv);
         byte[] encrypted1 = Base64.decodeBase64(sSrc);//先用bAES64解密
         try {
+            System.out.println("进来");
             byte[] original = cipher.doFinal(encrypted1);
             String originalString = new String(original);
             return originalString;
@@ -78,5 +79,22 @@ public class AESUtil {
             logger.info(e.toString());
             return null;
         }
+    }
+
+    public static void main(String[] args) throws Exception {
+        /*
+         * 此处使用AES-128-CBC加密模式，key需要为16位。
+         */
+        String cKey = "dvyYRQlnPRCMdQSe";
+        // 需要加密的字串
+        String cSrc = "{'loginname':'中','psw':'23'}";
+        System.out.println(cSrc);
+        // 加密
+        String enString = AESUtil.Encrypt(cSrc, cKey);
+        System.out.println("加密后的字串是：" + enString);
+
+        // 解密
+        String DeString = AESUtil.Decrypt(enString, cKey);
+        System.out.println("解密后的字串是：" + DeString);
     }
 }
