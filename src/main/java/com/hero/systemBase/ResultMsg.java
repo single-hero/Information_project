@@ -11,50 +11,51 @@ import com.alibaba.fastjson.JSONObject;
 public class ResultMsg {
 
     //枚举
-    public enum Code{
+    public enum Msg{
         Success,Error
     }
 
-    //状态
-    Code state;
-    //状态码
-    String stateCode;
+    //状态信息
+    Msg state;
     //结果集
     Object result;
-    //内容信息
-    String msg;
+    //状态码
+    String code;
 
 
     //成功返回信息
-    public ResultMsg(Code state,String msg,Object result) {
+    public ResultMsg(Msg state,String code,Object result) {
         super();
         this.state = state;
-        this.msg = msg;
+        this.code = code;
         this.result = result;
     }
     //失败返回信息
-    public ResultMsg(Code state,String msg) {
+    public ResultMsg(Msg state,String code) {
         super();
         this.state = state;
-        this.msg = msg;
+        this.code = code;
 //        this.result = new Object();
     }
 
 
     //getter and setter
-    public String getStateCode() {
-        return stateCode;
-    }
 
-    public void setStateCode(String stateCode) {
-        this.stateCode = stateCode;
-    }
-    public Code getState() {
+
+    public Msg getState() {
         return state;
     }
 
-    public void setState(Code state) {
+    public void setState(Msg state) {
         this.state = state;
+    }
+
+    public String getCode() {
+        return code;
+    }
+
+    public void setCode(String code) {
+        this.code = code;
     }
 
     public Object getResult() {
@@ -65,20 +66,12 @@ public class ResultMsg {
         this.result = result;
     }
 
-    public String getMsg() {
-        return msg;
-    }
-
-    public void setMsg(String msg) {
-        this.msg = msg;
-    }
-
 
     @Override
     public String toString(){
         JSONObject json=new JSONObject();
         json.put("state",state);
-        json.put("msg",msg);
+        json.put("code",code);
         json.put("result",result);
         return json.toString();
     }
