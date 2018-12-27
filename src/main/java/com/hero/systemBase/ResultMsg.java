@@ -18,17 +18,17 @@ public class ResultMsg {
     //状态信息
     Msg state;
     //结果集
-    Object result;
+    Object data;
     //状态码
     String code;
 
 
     //成功返回信息
-    public ResultMsg(Msg state,String code,Object result) {
+    public ResultMsg(Msg state,String code,Object data) {
         super();
         this.state = state;
         this.code = code;
-        this.result = result;
+        this.data = data;
     }
     //失败返回信息
     public ResultMsg(Msg state,String code) {
@@ -59,11 +59,11 @@ public class ResultMsg {
     }
 
     public Object getResult() {
-        return result;
+        return data;
     }
 
     public void setResult(Object result) {
-        this.result = result;
+        this.data = result;
     }
 
 
@@ -72,7 +72,7 @@ public class ResultMsg {
         JSONObject json=new JSONObject();
         json.put("state",state);
         json.put("code",code);
-        json.put("data",result);
+        json.put("data",data);
         return json.toString();
     }
 }

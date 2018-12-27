@@ -16,11 +16,12 @@ function SystemLogin(){
         data:{eParam:Encode(JSON.stringify(data))},
         success:function(data){
             console.log(data)
+            console.log(Decode(data.result))
         },
         error:function(data){
             // $("body").append("<iframe scrolling='auto' frameborder='0'  src='"+data.responseText+"' style='width:100%' frameborder=0 allowfullscreen></iframe>");
             // $('#loginModal').modal('hide');
-            console.log(data.responseText)
+            console.log(data)
             console.log("失败")
         }
     })

@@ -1,5 +1,6 @@
 package com.hero.service;
 
+import com.alibaba.fastjson.JSONObject;
 import com.hero.systemBase.ResultMsg;
 
 /**
@@ -9,5 +10,9 @@ import com.hero.systemBase.ResultMsg;
  */
 public interface LoginService {
 
+    //多数据源测试
     ResultMsg selAllUser();
+
+    //加密调试
+    ResultMsg responseParam(JSONObject jsonParam);
 }

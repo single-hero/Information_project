@@ -1,39 +1,50 @@
 //AES-128-CBC加密模式，key需要为16位，key和iv可以一样
-//不补码方式 还需要引入pad-zeropadding-min.js文件
-function encryptNoPadding(data) {
-    var key  = CryptoJS.enc.Utf8.parse('6364737132303138');
-    var iv   = CryptoJS.enc.Utf8.parse(systemKeyIv());
-    return CryptoJS.AES.encrypt(data, key, {iv:iv,mode:CryptoJS.mode.CBC,padding:CryptoJS.pad.ZeroPadding}).toString();
+//加密
+function getAesEncode(data,key,iv){
+    var key  = CryptoJS.enc.Utf8.parse(key);
+    var iv   = CryptoJS.enc.Utf8.parse(iv);
+    var encrypted =CryptoJS.AES.encrypt(data,key,
+        {
+            iv:iv,
+            mode:CryptoJS.mode.CBC,
+            padding:CryptoJS.pad.Pkcs7
+        });
+    return encrypted.toString();
 }
-//补码方式
-function encryptPadding(data) {
-    var key  = CryptoJS.enc.Utf8.parse('6364737132303138');
-    var iv   = CryptoJS.enc.Utf8.parse(systemKeyIv());
-    return CryptoJS.AES.encrypt(data, key, {iv:iv,mode:CryptoJS.mode.CBC}).toString();
+//解密
+function getAesDecode(encrypted,key,iv){
+    var key  = CryptoJS.enc.Utf8.parse(key);
+    var iv   = CryptoJS.enc.Utf8.parse(iv);
+    var decrypted =CryptoJS.AES.decrypt(encrypted,key,
+        {
+            iv:iv,
+            mode:CryptoJS.mode.CBC,
+            padding:CryptoJS.pad.Pkcs7
+        });
+    return decrypted.toString(CryptoJS.enc.Utf8);
 }
-
-//进行base64编码
-function base64Encode(data){
-    return window.btoa(data)
-}
-
-//进行base64解码
-function base64Decode(data){
-    return window.atob(data)
-}
-
 
 //先进行aes加密后进行base64编码
 function Encode(data) {
-    var key  = CryptoJS.enc.Utf8.parse('6364737132303138');
-    var iv   = CryptoJS.enc.Utf8.parse(systemKeyIv());
+    var key  = systemKeyIv().split(",")[1];
+    var iv   = systemKeyIv().split(",")[0];
     //aes加密
-    var aseEncode=CryptoJS.AES.encrypt(data, key, {iv:iv,mode:CryptoJS.mode.CBC}).toString();
+    var aseEncode=getAesEncode(data,key,iv);
     //进行base64编码返回
-    return base64Encode(aseEncode);
+    return Base64.encode(aseEncode);
+}
+
+//先进行base64解码后进行aes解密
+function Decode(data){
+    var key  = systemKeyIv().split(",")[1];
+    var iv   = systemKeyIv().split(",")[0];
+    //进行base64解码
+    var base64Decode=Base64.decode(data);
+    //进行aes解密返回
+    return getAesDecode(base64Decode,key,iv);
 }
 
 //获取系统时间(前6位)
 function systemKeyIv() {
-    return new Date().getTime().toString().substring(0,6)+"2018Encode";
+    return new Date().getTime().toString().substring(0,6)+"2018Encode"+",6364737132303138";
 }

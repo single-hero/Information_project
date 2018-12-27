@@ -1,9 +1,9 @@
 package com.hero.util;
 
+import com.hero.systemBase.applicationConfig;
 import org.apache.commons.codec.binary.Base64;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Value;
 
 import javax.crypto.Cipher;
 import javax.crypto.spec.IvParameterSpec;
@@ -20,9 +20,7 @@ public class AESUtil {
      */
     private static Logger logger = LoggerFactory.getLogger(AESUtil.class);
 
-    @Value("${KEY_iv}")
-    private String key_iv1;
-
+    private String key_iv= applicationConfig.getIv();
     public static String time=String.valueOf(System.currentTimeMillis()).substring(0,6);
     public static String IV ="";
 
@@ -33,8 +31,7 @@ public class AESUtil {
 
     //加密
     public String Encrypt(String sSrc, String sKey) throws Exception {
-        System.out.println(key_iv1);
-        IV=time+key_iv1;
+        IV=time+key_iv;
         if (sKey == null) {
             System.out.print("Key为空null");
             return null;
