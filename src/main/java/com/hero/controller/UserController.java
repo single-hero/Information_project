@@ -2,7 +2,7 @@ package com.hero.controller;
 
 import com.alibaba.fastjson.JSONObject;
 import com.hero.po.User;
-import com.hero.service.impl.UserServiceImpl;
+import com.hero.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -23,7 +23,7 @@ import javax.servlet.http.HttpServletRequest;
 public class UserController {
 
     @Autowired
-    UserServiceImpl userServiceimpl;
+    UserService userServiceimpl;
 
     //User查询表所有数据
     @RequestMapping(value = "/select" ,method = RequestMethod.GET)

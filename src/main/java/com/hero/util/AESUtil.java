@@ -3,6 +3,7 @@ package com.hero.util;
 import org.apache.commons.codec.binary.Base64;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Value;
 
 import javax.crypto.Cipher;
 import javax.crypto.spec.IvParameterSpec;
@@ -19,7 +20,11 @@ public class AESUtil {
      */
     private static Logger logger = LoggerFactory.getLogger(AESUtil.class);
 
-    public static final String IV = "face0123456789ai";
+    @Value("${KEY_iv}")
+    private String key_iv1;
+
+    public static String time=String.valueOf(System.currentTimeMillis()).substring(0,6);
+    public static String IV ="";
 
     /*******************************************************************
      * AES加密算法
@@ -27,8 +32,9 @@ public class AESUtil {
      * */
 
     //加密
-    public static String Encrypt(String sSrc, String sKey) throws Exception {
-
+    public String Encrypt(String sSrc, String sKey) throws Exception {
+        System.out.println(key_iv1);
+        IV=time+key_iv1;
         if (sKey == null) {
             System.out.print("Key为空null");
             return null;
@@ -90,11 +96,11 @@ public class AESUtil {
         String cSrc = "{'loginname':'中','psw':'23'}";
         System.out.println(cSrc);
         // 加密
-        String enString = AESUtil.Encrypt(cSrc, cKey);
-        System.out.println("加密后的字串是：" + enString);
-
-        // 解密
-        String DeString = AESUtil.Decrypt(enString, cKey);
-        System.out.println("解密后的字串是：" + DeString);
+//        String enString = AESUtil.Encrypt(cSrc, cKey);
+//        System.out.println("加密后的字串是：" + enString);
+//
+//        // 解密
+//        String DeString = AESUtil.Decrypt(enString, cKey);
+//        System.out.println("解密后的字串是：" + DeString);
     }
 }

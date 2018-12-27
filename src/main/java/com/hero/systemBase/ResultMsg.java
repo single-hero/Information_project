@@ -72,7 +72,7 @@ public class ResultMsg {
         JSONObject json=new JSONObject();
         json.put("state",state);
         json.put("code",code);
-        json.put("result",result);
+        json.put("data",result);
         return json.toString();
     }
 }
