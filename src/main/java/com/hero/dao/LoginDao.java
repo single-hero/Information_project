@@ -1,5 +1,7 @@
 package com.hero.dao;
 
+import com.alibaba.fastjson.JSONObject;
+
 import java.util.List;
 import java.util.Map;
 
@@ -8,8 +10,12 @@ import java.util.Map;
  * @author chenwenwei
  * @time 2018.12.27
  */
-public interface LoginDao {
+public interface LoginDao<T> {
 
     //查询所有用户(测试)
     List<Map<String ,Object>> selAllUser();
+
+
+    //系统用户登陆验证
+    Object systemLoginCheck(JSONObject jsonParam);
 }

@@ -14,7 +14,7 @@ import java.util.Date;
 
 
 @DatabaseTableName("sys_user")
-public class User {
+public class User{
     private Integer id;
     private String state;
     @JSONField(name = "account")

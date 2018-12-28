@@ -48,3 +48,22 @@ function Decode(data){
 function systemKeyIv() {
     return new Date().getTime().toString().substring(0,6)+"2018Encode"+",6364737132303138";
 }
+
+
+//http+域名+端口
+function requestUrl() {
+    var jumpUrl = "";
+    var url = document.location.toString();
+    var arrUrl = url.split("//");
+    // http 或者 https
+    var http = arrUrl[0];
+    var askURL = arrUrl[1].split("/");
+    // 域名+端口
+    var domain = askURL[0];
+    var start = askURL[1].split("/");
+    // 项目名
+    var projectName = start[0];
+
+    jumpUrl = http + "//" + domain + "/" + projectName;
+    return jumpUrl;
+}

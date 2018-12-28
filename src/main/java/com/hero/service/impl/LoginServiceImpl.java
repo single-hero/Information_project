@@ -1,11 +1,10 @@
 package com.hero.service.impl;
 
+import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import com.hero.dao.LoginDao;
 import com.hero.service.LoginService;
 import com.hero.systemBase.ResultMsg;
-import com.hero.util.AESUtil;
-import com.hero.util.Base64EncodUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
@@ -31,13 +30,14 @@ public class LoginServiceImpl implements LoginService {
     }
 
 
-    //加密调试
+    //系统用户登陆验证
     @Override
     public ResultMsg responseParam(JSONObject jsonParam) {
         String responseParam="";
         try {
-            responseParam= Base64EncodUtil.encode(new AESUtil().Encrypt(jsonParam.toJSONString(),key));
-            System.out.println(new AESUtil().Encrypt(jsonParam.toJSONString(),key));
+            System.out.println(JSON.toJSONString(loginDao.systemLoginCheck(jsonParam)));
+//            responseParam= Base64EncodUtil.encode(new AESUtil().Encrypt(jsonParam.toJSONString(),key));
+//            System.out.println(new AESUtil().Encrypt(jsonParam.toJSONString(),key));
 //            System.out.println(loginService.selAllUser());
         } catch (Exception e) {
             e.printStackTrace();
