@@ -1,6 +1,7 @@
 package com.hero.controller;
 
 import com.hero.po.User;
+import com.hero.systemBase.BaseConfig;
 import io.swagger.annotations.Api;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -14,7 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 @Api(description = "接口测试")
 @RestController
 @RequestMapping(value = "/test")
-public class TestController extends BaseController{
+public class TestController extends BaseConfig {
     //日志开启
 //    private final Logger logger= LoggerFactory.getLogger(this.getClass());
 //    @Autowired()
@@ -28,7 +29,7 @@ public class TestController extends BaseController{
     @RequestMapping(value = "/user")
     public @ResponseBody User hello(){
         User user=new User();
-        user.setAccount("name");
+        user.setUserName("name");
         user.setPassword("密码");
         logger.info("测试");
         return user;

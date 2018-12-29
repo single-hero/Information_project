@@ -1,4 +1,5 @@
-﻿(function ($) {
+﻿/*since:2018.12.29 chenwenwei*/
+(function ($) {
     "use strict";
     var mainApp = {
 

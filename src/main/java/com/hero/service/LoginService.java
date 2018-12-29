@@ -13,6 +13,6 @@ public interface LoginService {
     //多数据源测试
     ResultMsg selAllUser();
 
-    //加密调试
-    ResultMsg responseParam(JSONObject jsonParam);
+    //系统用户登陆验证
+    ResultMsg systemLoginCheckService(JSONObject jsonParam);
 }

@@ -17,5 +17,5 @@ public interface LoginDao<T> {
 
 
     //系统用户登陆验证
-    Object systemLoginCheck(JSONObject jsonParam);
+    Object systemLoginCheckDao(JSONObject jsonParam);
 }

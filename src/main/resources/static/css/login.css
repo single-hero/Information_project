@@ -231,3 +231,16 @@ h3{
 .modal-dialog{
     z-index: 1050;
 }
+.codeCheckLogin-box{
+    display: flex;
+    align-items: center;
+    padding-bottom: 5px;
+}
+.codeCheckLogin-box input{
+    flex: 1;
+    margin-bottom: 0!important;
+}
+.codeCheckLogin{
+    width:100px;
+    height:46px;
+}

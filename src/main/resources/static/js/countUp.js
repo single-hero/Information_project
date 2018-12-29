@@ -1,4 +1,4 @@
-
+/*since:2018.12.29 chenwenwei*/
 function countUp(target, startVal, endVal, decimals, duration, options) {
 
     // default options

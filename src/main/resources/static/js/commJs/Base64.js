@@ -1,3 +1,4 @@
+/*since:2018.12.29 chenwenwei*/
 /**
  * webtoolkit.base64是一个第三方实现的 Base64 编码工具，完美的支持 unicode 编码的字符串
  * Base64.encode('中文') --> 5Lit5paH

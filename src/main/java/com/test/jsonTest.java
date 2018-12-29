@@ -20,7 +20,7 @@ public class jsonTest {
     @Test
     public void beanToJson(){
         User u1=new User();
-        u1.setAccount("myTest");
+        u1.setUserName("myTest");
         u1.setPassword("myPassword");
         String s1= JSON.toJSONString(u1);
         System.out.println(s1);
@@ -30,10 +30,10 @@ public class jsonTest {
     public void listToJson(){
         List<User>list=new ArrayList<>();
         User u1=new User();
-        u1.setAccount("myTest1");
+        u1.setUserName("myTest1");
         u1.setPassword("myPassword1");
         User u2=new User();
-        u2.setAccount("myTest2");
+        u2.setUserName("myTest2");
         u2.setPassword("myPassword2");
 
         list.add(u1);
@@ -48,10 +48,10 @@ public class jsonTest {
         List<User> list=new ArrayList<>();
 
         User u1=new User();
-        u1.setAccount("myTest1");
+        u1.setUserName("myTest1");
         u1.setPassword("myPassword1");
         User u2=new User();
-        u2.setAccount("myTest2");
+        u2.setUserName("myTest2");
         u2.setPassword("myPassword2");
 
         list.add(u1);

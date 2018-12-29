@@ -33,7 +33,7 @@ public class UserDaoImpl implements UserDAO {
     //向数据库添加信息
     @Override
     public Integer InsertUser(User user){
-        int result=jdbcTemplate.update("insert into userbo(state,account,password,addtime,uptime)value(?,?,?,?,?)",user.getState(),user.getAccount(),user.getPassword(),user.getAddtime(),user.getUptime());
+        int result=jdbcTemplate.update("insert into userbo(state,account,password,addtime,uptime)value(?,?,?,?,?)",user.getState(),user.getUserName(),user.getPassword(),user.getAddtime(),user.getUptime());
         return result;
     }
 

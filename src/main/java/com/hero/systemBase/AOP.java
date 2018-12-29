@@ -2,7 +2,6 @@ package com.hero.systemBase;
 
 
 import com.alibaba.fastjson.JSONObject;
-import com.hero.controller.BaseController;
 import com.hero.util.*;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.*;
@@ -21,7 +20,7 @@ import javax.servlet.http.HttpServletResponse;
  */
 @Aspect
 @Component
-public class AOP extends BaseController{
+public class AOP extends BaseConfig {
     private long starSystemTime=0;
     private long endSystemTime=0;
     @Value("${KEY}")

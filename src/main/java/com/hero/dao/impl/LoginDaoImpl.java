@@ -5,6 +5,7 @@ import com.hero.dao.LoginDao;
 import com.hero.po.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
@@ -36,11 +37,19 @@ public class LoginDaoImpl<T> implements LoginDao {
 
     //系统用户登陆验证
     @Override
-    public Object systemLoginCheck(JSONObject jsonParam) {
-        return primaryJdbcTemplate.queryForObject(
-        "select * from sys_user where userName=? and password=?",
-            new Object[]{jsonParam.getString("loginname"),jsonParam.getString("psw")},
-            new BeanPropertyRowMapper<>(User.class)
-        );
+    public Object systemLoginCheckDao(JSONObject jsonParam) {
+        Object object=null;
+        try {
+            object=primaryJdbcTemplate.queryForObject(
+                    "select * from sys_user where userName=? and password=?",
+                    new Object[]{jsonParam.getString("loginname"),jsonParam.getString("psw")},
+                    new BeanPropertyRowMapper<>(User.class)
+            );
+        }catch (EmptyResultDataAccessException e){
+            //queryForObject方法查不到数据会抛此异常
+            //抛出异常返回null
+            return null;
+        }
+        return object;
     }
 }

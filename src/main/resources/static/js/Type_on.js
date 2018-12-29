@@ -1,3 +1,4 @@
+/*since:2018.12.29 chenwenwei*/
 function autoType(elementClass, typingSpeed){
   var thhis = $(elementClass);
   thhis.css({

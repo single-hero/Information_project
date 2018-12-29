@@ -59,11 +59,6 @@ public class SystemMessageContents {
 		public static final int MESSAGE_FINGER_IS_OVER_EXTIS_ERROR = 361; 
 		public static final int MESSAGE_PARK_ISNOT_OPEN_ERROR = 363; 
 
-		/**
-		 * ************************用户意见反馈相关错误码**********************************
-		 */
-		public static final int MESSAGE_FEEDBACK_SUBMIT_ERROR = 401; // 用户意见反馈提交失败
-		public static final int MESSAGE_FEEDBACK_CONTENT_PARAM_ERROR = 402; // 用户意见请求内容参数有误
 
 		/*************************** APP版本更新 **********************************************/
 		public static final int NO_LATEST_VERSION = 402; // 没有最新版本
@@ -79,19 +74,6 @@ public class SystemMessageContents {
 		public static final int MESSAGE_NOT_DRIVING_ORDER = 502; // 该单已经被接了
 		public static final int MESSAGE_NOT_DRIVING_CANCEL_ORDER = 503; // 订单取消失败
 
-		/**
-		 * ************************用户呼叫相关错误码************************************
-		 */
-		public static final int MESSAGE_CALL_NUMBER_ERROR = 601; // 呼叫号码有误
-		public static final int MESSAGE_CALL_TO_USERS_NOT_FIND_ERROR = 602; // 呼叫的房间号匹配不到对应用户
-
-		/**
-		 * ************************物业相关错误码**************************************
-		 */
-		public static final int MESSAGE_PROPERTY_DEVICE_NOT_AUTH_ORDER = 702; // 终端设备未授权
-		public static final int MESSAGE_PROPERTY_QUATER_NOT_EXITS = 703; // 物业小区不存在
-		public static final int MESSAGE_PROPERTY_DEVICE_NOT_EXITS = 704;// 根据mac地址无法查询到设备
-		public static final int MESSAGE_PROPERTY_BLOCK_CELL_UNIT_NOT_EXITS = 705;// 没有楼栋单元住户信息
 
 	}
 
@@ -103,7 +85,7 @@ public class SystemMessageContents {
 	 */
 	public static class SuccessCode {
 
-		public static final int MESSAGE_SUCCESS_CODE = 101; // 消息通用成功码标记
+		public static final int MESSAGE_SUCCESS_CODE = 100; // 消息通用成功码标记
 
 	}
 }

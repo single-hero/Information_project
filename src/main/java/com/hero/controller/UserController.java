@@ -57,7 +57,7 @@ public class UserController {
 
         User user=new User();
         user.setState(state);
-        user.setAccount(account);
+        user.setUserName(account);
         user.setPassword(password);
         return userServiceimpl.InsertUser(user).toString();
     }

@@ -17,8 +17,8 @@ import java.util.Date;
 public class User{
     private Integer id;
     private String state;
-    @JSONField(name = "account")
-    private String account;
+    @JSONField(name = "userName")
+    private String userName;
     private String password;
 
     @JSONField(format="yyyy-MM-dd HH:mm:ss")
@@ -45,12 +45,12 @@ public class User{
         this.state = state;
     }
 
-    public String getAccount() {
-        return account;
+    public String getUserName() {
+        return userName;
     }
 
-    public void setAccount(String account) {
-        this.account = account;
+    public void setUserName(String userName) {
+        this.userName = userName;
     }
 
     public String getPassword() {

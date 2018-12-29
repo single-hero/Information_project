@@ -1,3 +1,4 @@
+/*since:2018.12.29 chenwenwei*/
 //AES-128-CBC加密模式，key需要为16位，key和iv可以一样
 //加密
 function getAesEncode(data,key,iv){
@@ -66,4 +67,47 @@ function requestUrl() {
 
     jumpUrl = http + "//" + domain + "/" + projectName;
     return jumpUrl;
+}
+
+//SmallPop提示框架配置
+//错误提示
+function errorSpop(hint) {
+    spop({
+        template:hint,
+        position:"top-center",  //提示位置
+        group: 'submit-satus',  //每个组只能有一个小pop
+        style:'error',
+        autoclose: 5000     //停留时间
+    });
+}
+
+//成功
+function successSpop(hint) {
+    spop({
+        template:hint,
+        position:"top-center",  //提示位置
+        group: 'submit-satus',  //每个组只能有一个小pop
+        style:'success',
+        autoclose: 2000     //停留时间
+    });
+}
+
+//警告
+function warningSpop(hint) {
+    spop({
+        template:hint,
+        position:"top-center",  //提示位置
+        group: 'submit-satus',  //每个组只能有一个小pop
+        style:'warning',
+        autoclose: 5000     //停留时间
+    });
+}
+//默认提示
+function defaultSpop(hint) {
+    spop({
+        template:hint,
+        position:"top-center",  //提示位置
+        group: 'submit-satus',  //每个组只能有一个小pop
+        autoclose: 3000     //停留时间
+    });
 }

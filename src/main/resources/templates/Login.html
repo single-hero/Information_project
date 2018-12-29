@@ -6,21 +6,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <title>login</title>
+    <!--/*since:2018.12.29 chenwenwei*/-->
     <!--css-->
     <link rel="stylesheet" href="/bootstrap337/css/bootstrap.css"/>
-    <link rel="stylesheet" href="/css/login.css"/>
     <link rel="stylesheet" href="/Awesome470/css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="/css/login.css"/>
+    <link rel="stylesheet" href="/css/spop.min.css"/>
     <!--js-->
-    <script type="text/javascript" src="/js/jquery-3.3.1.min.js"></script>
+    <script type="text/javascript" src="/js/commJs/jquery-3.3.1.min.js"></script>
     <script type="text/javascript" src="/bootstrap337/js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="/js/aes.js"></script>
-    <!--<script type="text/javascript" src="/js/pad-zeropadding-min.js"></script>-->
+    <script type="text/javascript" src="/js/commJs/aes.js"></script>
+    <script type="text/javascript" src="/js/commJs/codeCheck.js"></script>
 </head>
 <script type="text/javascript">
     $(function () {
-        $.getScript('/js/comm.js');
-        $.getScript('/js/login.js');
-        $.getScript('/js/Base64.js');
+        $.getScript('/js/commJs/comm.js');
+        $.getScript('/js/login/login.js');
+        $.getScript('/js/commJs/Base64.js');
+        $.getScript('/js/commJs/spop.min.js');
+//        $.getScript('/js/commJs/codeCheck.js');
     })
 </script>
 <body>
@@ -40,9 +44,15 @@
                         </div>
 
                         <div class="form loginBox">
-                            <form method="post" action="/login" accept-charset="UTF-8">
+                            <form method="post" action="/login" accept-charset="UTF-8" id="loginForm">
                                 <input id="loginname" class="form-control" type="text" placeholder="请输入账号..." name="loginname" />
                                 <input id="password" class="form-control" type="password" placeholder="请输入密码..." name="password" />
+                                <div class="codeCheckLogin-box">
+                                    <input id="checkNum" class="form-control" type="text" placeholder="请输入验证码..." />
+
+                                    <!--<input type="text" class="form-control" placeholder="Recipient's username" aria-describedby="basic-addon2"/>-->
+                                    <div class="codeCheckLogin" id="codeCheckLogin"></div>
+                                </div>
                                 <input class="btn btn-default btn-login" type="button" value="登陆" onclick="SystemLogin()" />
                             </form>
                         </div>
