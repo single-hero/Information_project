@@ -9,16 +9,16 @@ $(function(){
 //系统登陆
 function SystemLogin(){
     //图形码验证验证(返回boolean类型)
-    var res=verifyCode.validate($("#checkNum").val());
-    if(!res){
-        $("#checkNum").val("")
-        errorSpop("验证码错误!")
-        return
-    }
-    else{
+    // var res=verifyCode.validate($("#checkNum").val());
+    // if(!res){
+    //     $("#checkNum").val("")
+    //     errorSpop("验证码错误!")
+    //     return
+    // }
+    // else{
         var loginName=$("#loginname").val();
         var password=$("#password").val();
-        var data={loginname:loginName,psw:password}
+        var data={loginname:loginName,psw:password,info:"Sys_backstage"}
         $.ajax({
             type:"POST",
             url:"/login/loginCheck",
@@ -43,5 +43,5 @@ function SystemLogin(){
                 console.log("失败")
             }
         });
-    }
+    // }
 }

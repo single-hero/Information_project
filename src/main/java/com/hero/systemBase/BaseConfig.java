@@ -59,4 +59,16 @@ public class BaseConfig implements Serializable {
         return JSONObject.parseObject(json);
     }
 
+    /**
+     * base64编码校验
+     */
+    public String base64Salt(String salt){
+        String check2019=salt.substring(18,19)+salt.substring(27,28)+salt.substring(39,40)+salt.substring(48,49);
+        String returnBase64=null;
+        if(check2019.equals("2019")){
+            returnBase64=salt.substring(0,18)+salt.substring(19,27)+salt.substring(28,39)+salt.substring(40,48)+salt.substring(49,salt.length());
+        }
+        return returnBase64;
+    }
+
 }

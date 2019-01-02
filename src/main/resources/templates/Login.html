@@ -15,16 +15,10 @@
     <!--js-->
     <script type="text/javascript" src="/js/commJs/jquery-3.3.1.min.js"></script>
     <script type="text/javascript" src="/bootstrap337/js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="/js/commJs/aes.js"></script>
-    <script type="text/javascript" src="/js/commJs/codeCheck.js"></script>
 </head>
 <script type="text/javascript">
     $(function () {
-        $.getScript('/js/commJs/comm.js');
-        $.getScript('/js/login/login.js');
-        $.getScript('/js/commJs/Base64.js');
-        $.getScript('/js/commJs/spop.min.js');
-//        $.getScript('/js/commJs/codeCheck.js');
+        $.getScript('/js/commJs/commLink.js')
     })
 </script>
 <body>
@@ -49,8 +43,6 @@
                                 <input id="password" class="form-control" type="password" placeholder="请输入密码..." name="password" />
                                 <div class="codeCheckLogin-box">
                                     <input id="checkNum" class="form-control" type="text" placeholder="请输入验证码..." />
-
-                                    <!--<input type="text" class="form-control" placeholder="Recipient's username" aria-describedby="basic-addon2"/>-->
                                     <div class="codeCheckLogin" id="codeCheckLogin"></div>
                                 </div>
                                 <input class="btn btn-default btn-login" type="button" value="登陆" onclick="SystemLogin()" />

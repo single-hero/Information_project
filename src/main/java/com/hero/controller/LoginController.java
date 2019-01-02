@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import javax.servlet.http.HttpServletRequest;
 
 /**
- * 登陆Controller层
+ * 后台系统登陆Controller层
  * @author chenwenwei
  * @time 2018.12.25
  */

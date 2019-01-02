@@ -60,6 +60,16 @@ public class Base64EncodUtil {
 	    	  base64Str = base64Str + "====".substring(mod4); 
 	    	  } 
 	    	  return new BASE64Decoder().decodeBuffer(base64Str); 
-	    } 
+	    }
+
+	    public static void main(String[] args){
+	      	String a ="123zhon中";
+			try {
+				System.out.println("加密===.."+safeUrlBase64Encode(a.getBytes()));
+				System.out.println("解密---.."+ new String(safeUrlBase64Decode(safeUrlBase64Encode(a.getBytes())),"UTF-8"));
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
 } 
 

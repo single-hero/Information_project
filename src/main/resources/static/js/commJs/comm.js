@@ -31,8 +31,12 @@ function Encode(data) {
     var iv   = systemKeyIv().split(",")[0];
     //aes加密
     var aseEncode=getAesEncode(data,key,iv);
-    //进行base64编码返回
-    return Base64.encode(aseEncode);
+    //base64加密
+    var Base64Encode =Base64.encode(aseEncode);
+    console.log("====>>"+Base64Encode)
+    // console.log(insertStr(insertStr(insertStr(insertStr(Base64Encode,18,"2"),27,"0"),39,"1"),48,"9"));
+    //base64简单加盐返回
+    return insertStr(insertStr(insertStr(insertStr(Base64Encode,18,"2"),27,"0"),39,"1"),48,"9");
 }
 
 //先进行base64解码后进行aes解密
@@ -43,6 +47,11 @@ function Decode(data){
     var base64Decode=Base64.decode(data);
     //进行aes解密返回
     return getAesDecode(base64Decode,key,iv);
+}
+
+//在固定位置插入符号(start为将要插入字符的位置，newStr为要插入的字符)
+function insertStr(soure, start, newStr){
+    return soure.slice(0, start) + newStr + soure.slice(start);
 }
 
 //获取系统时间(前6位)

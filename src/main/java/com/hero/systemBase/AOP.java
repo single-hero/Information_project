@@ -59,7 +59,11 @@ public class AOP extends BaseConfig {
             HttpServletResponse response=attributes.getResponse();
 
             //获取参数解密
-            String baseDecode=Base64EncodUtil.decode(data.getString("eParam"));
+            String returnCheckBase=base64Salt(data.getString("eParam"));
+            if(returnCheckBase==null){
+
+            }
+            String baseDecode=Base64EncodUtil.decode(base64Salt(data.getString("eParam")));
             String aseDecode=AesCBC.getInstance().decrypt(baseDecode,"UTF-8",key,String.valueOf(System.currentTimeMillis()).substring(0,6)+iv);
             try {
                 JSONObject jsonObject=JSONObject.parseObject(aseDecode);
