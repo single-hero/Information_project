@@ -57,11 +57,18 @@ public class AOP extends BaseConfig {
             ServletRequestAttributes attributes = (ServletRequestAttributes) RequestContextHolder.getRequestAttributes();
             HttpServletRequest request = attributes.getRequest();
             HttpServletResponse response=attributes.getResponse();
+            if(request.getRequestURL().toString().contains("getCupid")){
+                System.out.println(request.getHeader("user-agent"));
+                System.out.println(System.getProperty("os.name"));
+                System.out.println(System.getProperty("os.version"));
+                System.out.println(System.getProperty("os.arch"));
 
+            }
             //获取参数解密
             String returnCheckBase=base64Salt(data.getString("eParam"));
+            //编码校验
             if(returnCheckBase==null){
-
+                return new ResultMsg(ResultMsg.Msg.Error,SystemMessageContents.ErrorCode.MESSAGE_SERVER_IDENTITY_CHECK_ERROR+"");
             }
             String baseDecode=Base64EncodUtil.decode(base64Salt(data.getString("eParam")));
             String aseDecode=AesCBC.getInstance().decrypt(baseDecode,"UTF-8",key,String.valueOf(System.currentTimeMillis()).substring(0,6)+iv);

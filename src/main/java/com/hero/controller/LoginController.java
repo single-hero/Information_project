@@ -4,12 +4,14 @@ import com.alibaba.fastjson.JSONObject;
 import com.hero.service.LoginService;
 import com.hero.systemBase.BaseConfig;
 import com.hero.systemBase.PageData;
+import com.hero.systemBase.SystemInfo;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiImplicitParams;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -45,5 +47,20 @@ public class LoginController extends BaseConfig {
         return loginService.systemLoginCheckService((JSONObject) request.getAttribute("jsonParam"));
     }
 
+
+    //获取系统cpuid
+    @GetMapping(value = "/getCupid")
+    public @ResponseBody String getCupid(HttpServletRequest request){
+        System.out.println(request.getHeader("user-agent"));
+        System.out.println(System.getProperty("os.name"));
+        System.out.println(System.getProperty("os.version"));
+        System.out.println(System.getProperty("os.arch"));
+        System.out.println(System.getProperty("user.name"));
+        System.out.println(System.getProperty("user.home"));
+        System.out.println(request.getRemotePort());
+        System.out.println(request.getProtocol());
+
+        return SystemInfo.getCPUSerial();
+    }
 
 }

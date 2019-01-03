@@ -33,15 +33,16 @@ public class LoginServiceImpl extends BaseConfig implements LoginService{
         try {
             JSONObject param=this.changeJSON(loginDao.systemLoginCheckDao(jsonParam));
             if (param!=null){
-                //校验成功
+                //校验成功(100)
                 return new ResultMsg(ResultMsg.Msg.Success, SystemMessageContents.SuccessCode.MESSAGE_SUCCESS_CODE+"");
             }
             else{
-                //用户不存在
+                //用户不存在(302)
                 return new ResultMsg(ResultMsg.Msg.Error,SystemMessageContents.ErrorCode.MESSAGE_USERS_NOT_EXTIS_ERROR+"");
             }
         } catch (Exception e) {
             e.printStackTrace();
+            //系统异常(201)
             return new ResultMsg(ResultMsg.Msg.Error,SystemMessageContents.ErrorCode.MESSAGE_COMMON_CODE+"");
         }
     }

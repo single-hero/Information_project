@@ -12,9 +12,7 @@ var Base64 = {
         var output = "";
         var chr1, chr2, chr3, enc1, enc2, enc3, enc4;
         var i = 0;
-        console.log("input前"+input)
         input = Base64._utf8_encode(input);
-        console.log("input后"+input)
         while (i < input.length) {
             chr1 = input.charCodeAt(i++);
             chr2 = input.charCodeAt(i++);
@@ -62,9 +60,7 @@ var Base64 = {
     },
     // private method for UTF-8 encoding
     _utf8_encode : function(string) {
-        console.log("前"+String);
         string = string.replace(/\r\n/g, "\n");
-        console.log("后"+String);
         var utftext = "";
         for (var n = 0; n < string.length; n++) {
             var c = string.charCodeAt(n);
@@ -82,7 +78,6 @@ var Base64 = {
                 utftext += String.fromCharCode((c & 63) | 128);
             }
         }
-        console.log("base===>>"+utftext)
         return utftext;
     },
     // private method for UTF-8 decoding

@@ -30,6 +30,7 @@ function SystemLogin(){
                     successSpop("登陆成功");
                 }
                 else {
+                    console.log(data)
                     document.getElementById("loginForm").reset();
                     verifyCode.refresh();
                     errorSpop("账号或密码错误!")
