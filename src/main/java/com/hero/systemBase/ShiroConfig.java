@@ -29,11 +29,12 @@ public class ShiroConfig {
      * 初始化ShiroFilterFactoryBean的时候需要注入：SecurityManager
      *
      * Filter Chain定义说明 1、一个URL可以配置多个Filter，使用逗号分隔 2、当设置多个过滤器时，全部验证通过，才视为通过
-     * 3、部分过滤器可指定参数，如perms，roles
+     * 部分过滤器可指定参数，如perms，roles
      *
      */
     @Bean
-    public ShiroFilterFactoryBean shirFilter(SecurityManager securityManager) {
+    public ShiroFilterFactoryBean shiroFilterFactoryBean(SecurityManager securityManager) {
+        //shiroFilterFactoryBean对象
         ShiroFilterFactoryBean shiroFilterFactoryBean = new ShiroFilterFactoryBean();
         // 必须设置 SecurityManager
         shiroFilterFactoryBean.setSecurityManager(securityManager);
@@ -47,25 +48,30 @@ public class ShiroConfig {
         shiroFilterFactoryBean.setUnauthorizedUrl("/403");
         // 拦截器.
         Map<String, String> filterChainDefinitionMap = new LinkedHashMap<String, String>();
-        // 配置不会被拦截的链接 顺序判断
-        filterChainDefinitionMap.put("/static/**", "anon");
-        filterChainDefinitionMap.put("/swagger-ui.html#", "anon");
+        // 配置不会被拦截的链接 顺序从上往下判断
+        filterChainDefinitionMap.put("/resources/static/**", "anon");
+        filterChainDefinitionMap.put("/swagger-ui.html", "anon");
         filterChainDefinitionMap.put("/hello", "anon");
 
         // 配置退出过滤器,其中的具体的退出代码Shiro已经替我们实现了,加上这个会导致302，请求重置，暂不明白原因
         filterChainDefinitionMap.put("/logout", "logout");
-        //配置某个url需要某个权限码
-        filterChainDefinitionMap.put("/hello", "perms[how_are_you]");
+        //add操作，该用户必须有【addOperation】权限
+        filterChainDefinitionMap.put("/add", "perms[addOperation]");
 
         // 过滤链定义，从上向下顺序执行，一般将 /**放在最为下边
         // <!-- authc:所有url都必须认证通过才可以访问; anon:所有url都都可以匿名访问;user:remember me的可以访问-->
         filterChainDefinitionMap.put("/fine", "user");
-        filterChainDefinitionMap.put("/focus/**", "authc");
+//        filterChainDefinitionMap.put("/**", "authc");
         shiroFilterFactoryBean.setFilterChainDefinitionMap(filterChainDefinitionMap);
         System.out.println("Shiro拦截器工厂类注入成功");
         return shiroFilterFactoryBean;
     }
 
+
+    /**
+     * shiro安全管理器设置realm认证
+     * @return
+     */
     @Bean
     public SecurityManager securityManager() {
         DefaultWebSecurityManager securityManager = new DefaultWebSecurityManager();
@@ -144,7 +150,7 @@ public class ShiroConfig {
     @Bean
     public SimpleCookie rememberMeCookie(){
 
-        System.out.println("ShiroConfiguration.rememberMeCookie()");
+//        System.out.println("ShiroConfiguration.rememberMeCookie()");
         //这个参数是cookie的名称，对应前端的checkbox的name = rememberMe
         SimpleCookie simpleCookie = new SimpleCookie("rememberMe");
         //<!-- 记住我cookie生效时间30天 ,单位秒;-->
@@ -159,7 +165,7 @@ public class ShiroConfig {
     @Bean
     public CookieRememberMeManager rememberMeManager(){
 
-        System.out.println("ShiroConfiguration.rememberMeManager()");
+//        System.out.println("ShiroConfiguration.rememberMeManager()");
         CookieRememberMeManager cookieRememberMeManager = new CookieRememberMeManager();
         // cookieRememberMeManager.setCipherKey(org.apache.shiro.codec.Base64.decode("6ZmI6I2j5Y+R5aSn5ZOlAA=="));
         cookieRememberMeManager.setCookie(rememberMeCookie());

@@ -14,7 +14,7 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 /**
  * swagger
  * @author chenwenwei
- * @address http://localhost/swagger-ui.html
+ * @address http://localhost//swagger-ui.html
  * @time 2018.11.28
  */
 @Configuration

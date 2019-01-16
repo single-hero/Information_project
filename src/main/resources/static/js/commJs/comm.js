@@ -34,7 +34,7 @@ function Encode(data) {
     //base64加密
     var Base64Encode =Base64.encode(aseEncode);
     // console.log("====>>"+Base64Encode)
-    console.log(insertStr(insertStr(insertStr(insertStr(Base64Encode,18,"2"),27,"0"),39,"1"),48,"9"));
+    // console.log(insertStr(insertStr(insertStr(insertStr(Base64Encode,18,"2"),27,"0"),39,"1"),48,"9"));
     //base64简单加盐返回
     return insertStr(insertStr(insertStr(insertStr(Base64Encode,18,"2"),27,"0"),39,"1"),48,"9");
 }

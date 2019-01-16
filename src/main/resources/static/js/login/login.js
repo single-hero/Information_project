@@ -27,10 +27,11 @@ function SystemLogin(){
             data:{eParam:Encode(JSON.stringify(data))},
             success:function(data){
                 if(data.state=="Success"){
-                    successSpop("登陆成功");
+                    window.location=requestUrl()+"login/SysIndex"
+                    // successSpop("登陆成功");
                 }
                 else {
-                    console.log(data)
+                    // console.log(data)
                     document.getElementById("loginForm").reset();
                     verifyCode.refresh();
                     errorSpop("账号或密码错误!")

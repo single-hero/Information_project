@@ -63,4 +63,10 @@ public class LoginController extends BaseConfig {
         return SystemInfo.getCPUSerial();
     }
 
+    @GetMapping(value = "/SysIndex")
+    public String SysIndex(){
+        System.out.println("进来");
+        return "error";
+    }
+
 }
