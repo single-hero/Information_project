@@ -21,13 +21,13 @@ function SystemLogin(){
         var data={loginname:loginName,psw:password,info:"Sys_backstage"}
         $.ajax({
             type:"POST",
-            url:"/login/loginCheck",
+            url:"/SysLogin/loginCheck",
             dataType:'json',
             cache:false,        //作用第一次请求完毕之后，可以直接从缓存里面读取而不是再到服务端读取
             data:{eParam:Encode(JSON.stringify(data))},
             success:function(data){
                 if(data.state=="Success"){
-                    window.location=requestUrl()+"login/SysIndex"
+                    // window.location=requestUrl()+"SysLogin/SysIndex"
                     // successSpop("登陆成功");
                 }
                 else {

@@ -4,7 +4,6 @@ import com.alibaba.fastjson.JSONObject;
 import com.hero.service.LoginService;
 import com.hero.systemBase.BaseConfig;
 import com.hero.systemBase.PageData;
-import com.hero.systemBase.SystemInfo;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiImplicitParams;
@@ -25,7 +24,7 @@ import javax.servlet.http.HttpServletRequest;
  */
 @Api(description = "用户登陆")
 @Controller
-@RequestMapping(value = "/login")
+@RequestMapping(value = "/SysLogin")
 public class LoginController extends BaseConfig {
     @Autowired
     LoginService loginService;
@@ -48,24 +47,8 @@ public class LoginController extends BaseConfig {
     }
 
 
-    //获取系统cpuid
-    @GetMapping(value = "/getCupid")
-    public @ResponseBody String getCupid(HttpServletRequest request){
-        System.out.println(request.getHeader("user-agent"));
-        System.out.println(System.getProperty("os.name"));
-        System.out.println(System.getProperty("os.version"));
-        System.out.println(System.getProperty("os.arch"));
-        System.out.println(System.getProperty("user.name"));
-        System.out.println(System.getProperty("user.home"));
-        System.out.println(request.getRemotePort());
-        System.out.println(request.getProtocol());
-
-        return SystemInfo.getCPUSerial();
-    }
-
     @GetMapping(value = "/SysIndex")
     public String SysIndex(){
-        System.out.println("进来");
         return "error";
     }
 

@@ -2,7 +2,10 @@ package com.hero.systemBase;
 
 
 import com.alibaba.fastjson.JSONObject;
-import com.hero.util.*;
+import com.hero.util.AesCBC;
+import com.hero.util.Base64EncodUtil;
+import com.hero.util.ChineseUtill;
+import com.hero.util.UserClient;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.*;
 import org.springframework.beans.factory.annotation.Value;
@@ -17,9 +20,10 @@ import javax.servlet.http.HttpServletResponse;
  * Controller Aop切面
  * @author chenwenwei
  * @time 2018.05.11
+ * @content 拦截顺序：filter—>Interceptor—->@Aspect
  */
-@Aspect
 @Component
+@Aspect
 public class AOP extends BaseConfig {
     private long starSystemTime=0;
     private long endSystemTime=0;
@@ -57,23 +61,17 @@ public class AOP extends BaseConfig {
             ServletRequestAttributes attributes = (ServletRequestAttributes) RequestContextHolder.getRequestAttributes();
             HttpServletRequest request = attributes.getRequest();
             HttpServletResponse response=attributes.getResponse();
-            if(request.getRequestURL().toString().contains("getCupid")){
-                System.out.println(request.getHeader("user-agent"));
-                System.out.println(System.getProperty("os.name"));
-                System.out.println(System.getProperty("os.version"));
-                System.out.println(System.getProperty("os.arch"));
-
-            }
             //获取参数解密
             String returnCheckBase=base64Salt(data.getString("eParam"));
             //编码校验
             if(returnCheckBase==null){
                 return new ResultMsg(ResultMsg.Msg.Error,SystemMessageContents.ErrorCode.MESSAGE_SERVER_IDENTITY_CHECK_ERROR+"");
             }
-            String baseDecode=Base64EncodUtil.decode(base64Salt(data.getString("eParam")));
+            String baseDecode=Base64EncodUtil.decode(returnCheckBase);
             String aseDecode=AesCBC.getInstance().decrypt(baseDecode,"UTF-8",key,String.valueOf(System.currentTimeMillis()).substring(0,6)+iv);
             try {
                 JSONObject jsonObject=JSONObject.parseObject(aseDecode);
+                jsonObject.put("systemAuthor",request.getAttribute("systemAuthor"));
                 request.setAttribute("jsonParam",jsonObject);
             }catch (Exception e){
                 e.printStackTrace();

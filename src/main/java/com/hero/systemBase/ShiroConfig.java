@@ -43,15 +43,18 @@ public class ShiroConfig {
         //访问的是后端url地址为 /login的接口
         shiroFilterFactoryBean.setLoginUrl("/login");
         // 登录成功后要跳转的链接
-        shiroFilterFactoryBean.setSuccessUrl("/index");
+//        shiroFilterFactoryBean.setSuccessUrl("/SysLogin/SysIndex");
         // 未授权界面;
-        shiroFilterFactoryBean.setUnauthorizedUrl("/403");
+//        shiroFilterFactoryBean.setUnauthorizedUrl("/403");
         // 拦截器.
         Map<String, String> filterChainDefinitionMap = new LinkedHashMap<String, String>();
         // 配置不会被拦截的链接 顺序从上往下判断
-        filterChainDefinitionMap.put("/resources/static/**", "anon");
+        filterChainDefinitionMap.put("/static/**", "anon");
         filterChainDefinitionMap.put("/swagger-ui.html", "anon");
-        filterChainDefinitionMap.put("/hello", "anon");
+        filterChainDefinitionMap.put("/css/**", "anon");
+        filterChainDefinitionMap.put("/bootstrap337/**", "anon");
+        filterChainDefinitionMap.put("/js/**", "anon");
+//        filterChainDefinitionMap.put("/hello", "anon");
 
         // 配置退出过滤器,其中的具体的退出代码Shiro已经替我们实现了,加上这个会导致302，请求重置，暂不明白原因
         filterChainDefinitionMap.put("/logout", "logout");
@@ -60,7 +63,7 @@ public class ShiroConfig {
 
         // 过滤链定义，从上向下顺序执行，一般将 /**放在最为下边
         // <!-- authc:所有url都必须认证通过才可以访问; anon:所有url都都可以匿名访问;user:remember me的可以访问-->
-        filterChainDefinitionMap.put("/fine", "user");
+//        filterChainDefinitionMap.put("/fine", "user");
 //        filterChainDefinitionMap.put("/**", "authc");
         shiroFilterFactoryBean.setFilterChainDefinitionMap(filterChainDefinitionMap);
         System.out.println("Shiro拦截器工厂类注入成功");
