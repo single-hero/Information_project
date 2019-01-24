@@ -42,6 +42,13 @@
 		</dependency>
 
 
+		<!--使用Undertow代替tomcat-->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-undertow</artifactId>
+		</dependency>
+
+
 		<!--静态页加载动数据模板引擎-->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -49,10 +56,12 @@
 		</dependency>
 
 
-		<!--使用Undertow代替tomcat-->
+		<!-- https://mvnrepository.com/artifact/net.sourceforge.nekohtml/nekohtml -->
+		<!--nekohtml需要与thymeleaf搭配一起才能使thymeleaf更亲切友好-->
 		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-undertow</artifactId>
+			<groupId>net.sourceforge.nekohtml</groupId>
+			<artifactId>nekohtml</artifactId>
+			<version>1.9.22</version>
 		</dependency>
 
 
@@ -87,11 +96,11 @@
 		</dependency>
 
 
-		<!--使用缓存-->
-		<dependency>
+		<!--使用cache缓存-->
+<!--		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-cache</artifactId>
-		</dependency>
+		</dependency>-->
 
 
 		<!--oss上传-->
@@ -184,13 +193,6 @@
 			<artifactId>UserAgentUtils</artifactId>
 			<version>1.20</version>
 		</dependency>
-
-		<!--&lt;!&ndash;json web token&ndash;&gt;-->
-		<!--<dependency>-->
-			<!--<groupId>com.auth0</groupId>-->
-			<!--<artifactId>java-jwt</artifactId>-->
-			<!--<version>3.2.0</version>-->
-		<!--</dependency>-->
 
 
 		<!--sprigboot 整合shiro依赖-->

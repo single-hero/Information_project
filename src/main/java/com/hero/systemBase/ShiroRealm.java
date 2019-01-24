@@ -27,7 +27,7 @@ public class ShiroRealm extends AuthorizingRealm {
         logger.info("----权限认证方法----");
         SimpleAuthorizationInfo simpleAuthorInfo = new SimpleAuthorizationInfo();
 
-        simpleAuthorInfo.addStringPermission("how_are_you");//给当前用户授权url为hello的权限码
+        simpleAuthorInfo.addStringPermission("addOperation");//给当前用户授权url为hello的权限码
         System.out.println("经试验：并不是每次调用接口就会执行，而是调用需要操作码（permission）的接口就会执行");
         return simpleAuthorInfo;
     }

@@ -10,7 +10,6 @@ import io.swagger.annotations.ApiImplicitParams;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -44,12 +43,6 @@ public class LoginController extends BaseConfig {
     @PostMapping(value = "/loginCheck")
     public @ResponseBody Object systemLoginCheck(HttpServletRequest request){
         return loginService.systemLoginCheckService((JSONObject) request.getAttribute("jsonParam"));
-    }
-
-
-    @GetMapping(value = "/SysIndex")
-    public String SysIndex(){
-        return "error";
     }
 
 }

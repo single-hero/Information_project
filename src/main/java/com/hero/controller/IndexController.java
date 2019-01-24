@@ -2,9 +2,9 @@ package com.hero.controller;
 
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
-import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 /**
@@ -15,10 +15,17 @@ import java.io.IOException;
 @Controller
 public class IndexController {
     //后台登陆跳转
-    @GetMapping(value ="login")
-    public String toIndex(HttpServletResponse response) throws IOException {
-//        response.sendRedirect("/hero/Templates/Login.html");
-        return "/Login";
+    @GetMapping(value ={"/login","/"})
+    public String toLogin() throws IOException {
+        return "/Login/Login";
+    }
+
+
+    //首页
+    @GetMapping(value = "/Index")
+    public String toIndex(Model model){
+        model.addAttribute("SystemName","后台管理系统");
+        return "/index";
     }
 
     //退出登陆

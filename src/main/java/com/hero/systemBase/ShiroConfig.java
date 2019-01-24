@@ -1,6 +1,6 @@
 package com.hero.systemBase;
 
-import org.apache.shiro.cache.MemoryConstrainedCacheManager;
+import org.apache.shiro.cache.ehcache.EhCacheManager;
 import org.apache.shiro.mgt.SecurityManager;
 import org.apache.shiro.spring.LifecycleBeanPostProcessor;
 import org.apache.shiro.spring.security.interceptor.AuthorizationAttributeSourceAdvisor;
@@ -83,7 +83,8 @@ public class ShiroConfig {
 
         //将缓存注入安全管理器，就不会反复执行  realm的授权方法了；只要实现了shiro的cache接口、CacheManager接口就可以用来注入安全管理器
         //shiro自带的一个内存缓存，本质是hashmap，MemoryConstrainedCacheManager()，试验没问题，非常轻，简单的登录用这个
-        securityManager.setCacheManager(new MemoryConstrainedCacheManager());
+//        securityManager.setCacheManager(new MemoryConstrainedCacheManager());
+        securityManager.setCacheManager(ehCacheManager());
 
         //用了redis缓存注入安全管理器，会报一个序列化失败的错误，推测是new SimpleAuthenticationInfo 时 user对象无法序列化，加上序列化就好了
         //securityManager.setCacheManager(cacheManager());
@@ -95,6 +96,8 @@ public class ShiroConfig {
         securityManager.setRememberMeManager(rememberMeManager());
         return securityManager;
     }
+
+
     /**
      * 身份认证realm; (这个需要自己写，账号密码校验；权限等)
      * @return
@@ -103,6 +106,19 @@ public class ShiroConfig {
     public ShiroRealm myShiroRealm() {
         ShiroRealm myShiroRealm = new ShiroRealm();
         return myShiroRealm;
+    }
+
+
+    /**
+     * ehcache缓存管理器；shiro整合ehcache：
+     * 通过安全管理器：securityManager
+     * @return EhCacheManager
+     */
+    @Bean public EhCacheManager ehCacheManager() {
+//        System.out.println("=====shiro整合ehcache缓存：ShiroConfiguration.getEhCacheManager()");
+        EhCacheManager cacheManager = new EhCacheManager();
+        cacheManager.setCacheManagerConfigFile("classpath:ehcache.xml");
+        return cacheManager;
     }
 
     /**
@@ -150,14 +166,18 @@ public class ShiroConfig {
 //        return sessionManager;
 //    }
 
+    /**
+     * 设置记住我cookie过期时间
+     * @return
+     */
     @Bean
     public SimpleCookie rememberMeCookie(){
 
 //        System.out.println("ShiroConfiguration.rememberMeCookie()");
         //这个参数是cookie的名称，对应前端的checkbox的name = rememberMe
         SimpleCookie simpleCookie = new SimpleCookie("rememberMe");
-        //<!-- 记住我cookie生效时间30天 ,单位秒;-->
-        simpleCookie.setMaxAge(259200);
+        //<!-- 记住我cookie生效时间30天(259200) ,单位秒;-->
+        simpleCookie.setMaxAge(3600);
         simpleCookie.setHttpOnly(true);
         return simpleCookie;
     }

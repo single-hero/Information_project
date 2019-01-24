@@ -1,7 +1,6 @@
 /*since:2018.12.29 chenwenwei*/
 var verifyCode = null;
 $(function(){
-    $('#loginModal').modal('show');
     //初始化图形验证码
     verifyCode = new GVerify("codeCheckLogin");
 })
@@ -27,11 +26,10 @@ function SystemLogin(){
             data:{eParam:Encode(JSON.stringify(data))},
             success:function(data){
                 if(data.state=="Success"){
-                    // window.location=requestUrl()+"SysLogin/SysIndex"
+                    window.location=requestUrl()+"Index"
                     // successSpop("登陆成功");
                 }
                 else {
-                    // console.log(data)
                     document.getElementById("loginForm").reset();
                     verifyCode.refresh();
                     errorSpop("账号或密码错误!")
@@ -39,10 +37,8 @@ function SystemLogin(){
                 // console.log(Decode(data.result))
             },
             error:function(data){
-                // $("body").append("<iframe scrolling='auto' frameborder='0'  src='"+data.responseText+"' style='width:100%' frameborder=0 allowfullscreen></iframe>");
-                // $('#loginModal').modal('hide');
                 console.log(data)
-                console.log("失败")
+                errorSpop("请稍候再试!!")
             }
         });
     // }
