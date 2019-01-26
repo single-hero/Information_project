@@ -163,7 +163,8 @@ html.fullscreen-bg #wrapper {
     background-color: #f8f8f8; }
 .navbar-default .brand {
     float: left;
-    padding: 30px 39px;
+    /*padding: 30px 39px;*/
+    padding: 24px 60px;
     background-color: #fff; }
 @media screen and (max-width: 1024px) {
     .navbar-default .brand {
@@ -1772,4 +1773,12 @@ ul.activity-timeline > li:last-child:after {
     height: 100%;
     display: inline-block;
     vertical-align: middle;
+}
+
+
+/*index logoContent*/
+div[class="brand"] a{
+    font-weight: bold;
+    font-size: 20px;
+    color: #676a6d;
 }

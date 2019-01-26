@@ -1,6 +1,8 @@
 package com.hero.controller;
 
 
+import com.hero.service.IndexService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -14,6 +16,9 @@ import java.io.IOException;
  */
 @Controller
 public class IndexController {
+    @Autowired
+    IndexService indexService;
+
     //后台登陆跳转
     @GetMapping(value ={"/login","/"})
     public String toLogin() throws IOException {
@@ -25,8 +30,10 @@ public class IndexController {
     @GetMapping(value = "/Index")
     public String toIndex(Model model){
         model.addAttribute("SystemName","后台管理系统");
+        indexService.responseMenuList();
         return "/index";
     }
+
 
     //退出登陆
 /*    @GetMapping(value = "/logout")
