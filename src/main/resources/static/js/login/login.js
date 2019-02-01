@@ -26,7 +26,8 @@ function SystemLogin(){
             data:{eParam:Encode(JSON.stringify(data))},
             success:function(data){
                 if(data.state=="Success"){
-                    window.location=requestUrl()+"Index"
+                    // window.location=requestUrl()+"Index"
+                    window.location="Index"
                     // successSpop("登陆成功");
                 }
                 else {

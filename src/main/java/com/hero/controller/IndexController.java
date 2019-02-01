@@ -1,7 +1,9 @@
 package com.hero.controller;
 
 
+import com.alibaba.fastjson.JSONObject;
 import com.hero.service.IndexService;
+import com.hero.systemBase.BaseConfig;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -15,7 +17,7 @@ import java.io.IOException;
  * @time 2018.05.08
  */
 @Controller
-public class IndexController {
+public class IndexController extends BaseConfig{
     @Autowired
     IndexService indexService;
 
@@ -30,7 +32,7 @@ public class IndexController {
     @GetMapping(value = "/Index")
     public String toIndex(Model model){
         model.addAttribute("SystemName","后台管理系统");
-        indexService.responseMenuList();
+        model.addAttribute("menuList", JSONObject.toJSONString(indexService.responseMenuList()));
         return "/index";
     }
 

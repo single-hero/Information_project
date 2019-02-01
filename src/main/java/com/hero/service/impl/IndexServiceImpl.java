@@ -29,15 +29,18 @@ public class IndexServiceImpl extends BaseConfig implements IndexService{
         List<MenuPO> menuList=indexDAO.selParent();
         menuListNode=new ArrayList<>();
         for (MenuPO item:menuList) {
-            MenuPO menuPO=new MenuPO();
-            menuPO.setId(item.getId());
-            menuPO.setMenuName(item.getMenuName());
-            menuPO.setParentId(item.getParentId());
-            menuPO.setParentName(item.getParentName());
-            menuPO.setUrl(item.getUrl());
-            classMenuNode(menuPO);
-            menuListNode.add(menuPO);
+            MenuPO listNode=new MenuPO();
+            listNode.setId(item.getId());
+            listNode.setMenuName(item.getMenuName());
+            listNode.setParentId(item.getParentId());
+            listNode.setParentName(item.getParentName());
+            listNode.setUrl(item.getUrl());
+            if(item.getId()!=0){
+            classMenuNode(listNode);
+            menuListNode.add(listNode);
+            }
         }
+//        System.out.println("meunListNode=====>>"+ JSON.toJSONString(menuListNode));
         return menuListNode;
     }
 
@@ -47,16 +50,21 @@ public class IndexServiceImpl extends BaseConfig implements IndexService{
         List<MenuPO> menuList=indexDAO.selParentNode(menuPO.getId());
         List<MenuPO> menuListNode=new ArrayList<>();
         for (MenuPO item:menuList) {
-            MenuPO menuPO1=new MenuPO();
-            menuPO1.setId(item.getId());
-            menuPO1.setMenuName(item.getMenuName());
-            menuPO1.setParentId(item.getParentId());
-            menuPO1.setParentName(item.getParentName());
-            menuPO1.setUrl(item.getUrl());
-            menuListNode.add(menuPO1);
+            MenuPO listNode=new MenuPO();
+            listNode.setId(item.getId());
+            listNode.setMenuName(item.getMenuName());
+            listNode.setParentId(item.getParentId());
+            listNode.setParentName(item.getParentName());
+            listNode.setUrl(item.getUrl());
+            //将赋值好的MenuPO的对象加入到list集合
+            menuListNode.add(listNode);
+            //meunListNode 集合赋值给List<menuPO>集合
             menuPO.setMenuNode(menuListNode);
             //开始递归
-            classMenuNode(menuPO1);
+            if(menuPO.getId()!=0){
+                classMenuNode(listNode);
+            }
+
         }
 
     }

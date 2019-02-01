@@ -924,9 +924,9 @@ ul.activity-list > li .timestamp {
 @media screen and (max-width: 768px) {
     .custom-tabs-line ul li.active > a {
         margin-bottom: -1px; } }
-
-.tab-pane {
-    padding: 25px 15px; }
+/*选项卡main*/
+/*.tab-pane {
+    padding: 25px 15px; }*/
 
 /********************
  * CHARTS
@@ -1781,4 +1781,18 @@ div[class="brand"] a{
     font-weight: bold;
     font-size: 20px;
     color: #676a6d;
+}
+/*选项卡工具栏*/
+.dropdown-menu{
+    left:auto;
+    right:0;
+}
+
+/*选项卡main*/
+/*.tab-pane{*/
+    /*padding: 0 auto;*/
+/*}*/
+
+.version{
+    margin-left: 40px;
 }
