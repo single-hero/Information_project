@@ -26,7 +26,7 @@ public class IndexDaoImpl implements IndexDAO {
     //查询所有父级菜单
     @Override
     public List<MenuPO> selParent() {
-        List<MenuPO>list=primaryJdbcTemplate.query("select * from sys_menu where parentId='0' ",new BeanPropertyRowMapper(MenuPO.class));
+        List<MenuPO>list=primaryJdbcTemplate.query("select * from sys_menu where parentId='0' and state=0 ",new BeanPropertyRowMapper(MenuPO.class));
         return list;
     }
 
@@ -34,7 +34,7 @@ public class IndexDaoImpl implements IndexDAO {
     //查询所有子菜单
     @Override
     public List<MenuPO> selParentNode(Integer id) {
-        List<MenuPO>list=primaryJdbcTemplate.query("select * from sys_menu where parentId=?",new Object[]{id},new BeanPropertyRowMapper<>(MenuPO.class));
+        List<MenuPO>list=primaryJdbcTemplate.query("select * from sys_menu where parentId=? and state=0",new Object[]{id},new BeanPropertyRowMapper<>(MenuPO.class));
         return list;
     }
 

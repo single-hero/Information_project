@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>菜单列表</title>
+    <!--css-->
+    <link rel="stylesheet" th:href="@{/bootstrap337/css/bootstrap.min.css}">
+    <link rel="stylesheet" th:href="@{/bootstrap337/bootstrap-treetable.css}">
+    <link rel="stylesheet" th:href="@{/css/spop.min.css}"/>
+    <!--js-->
+    <script type="text/javascript" th:src="@{/js/commJs/jquery-3.3.1.min.js}"></script>
+    <script type="text/javascript" th:src="@{/bootstrap337/js/bootstrap.min.js}"></script>
+    <script type="text/javascript" th:src="@{/bootstrap337/bootstrap-treetable.js}"></script>
+    <script type="text/javascript" th:src="@{/js/commJs/spop.min.js}"></script>
+    <script type="text/javascript" th:src="@{/js/commJs/comm.js}"></script>
+    <script type="text/javascript" th:src="@{/js/menu/Menu.js}"></script>
+</head>
+
+<!--在javascript访问model中的数据-->
+<script type="text/javascript" th:inline="javascript">
+    $(function () {
+//        console.log([[${List}]])
+    })
+</script>
+<body>
+<input hidden="hidden" id="listId" th:value="${List}">
+<table id="tableTree"></table>
+</body>
+</html>

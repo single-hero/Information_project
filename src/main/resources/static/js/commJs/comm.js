@@ -83,7 +83,7 @@ function requestUrl() {
 function errorSpop(hint) {
     spop({
         template:hint,
-        position:"top-center",  //提示位置
+        position:"bottom-right",  //提示位置
         group: 'submit-satus',  //每个组只能有一个小pop
         style:'error',
         autoclose: 5000     //停留时间
@@ -94,7 +94,7 @@ function errorSpop(hint) {
 function successSpop(hint) {
     spop({
         template:hint,
-        position:"top-center",  //提示位置
+        position:"bottom-right",  //提示位置
         group: 'submit-satus',  //每个组只能有一个小pop
         style:'success',
         autoclose: 2000     //停留时间
@@ -105,7 +105,7 @@ function successSpop(hint) {
 function warningSpop(hint) {
     spop({
         template:hint,
-        position:"top-center",  //提示位置
+        position:"bottom-right",  //提示位置
         group: 'submit-satus',  //每个组只能有一个小pop
         style:'warning',
         autoclose: 5000     //停留时间
@@ -115,7 +115,7 @@ function warningSpop(hint) {
 function defaultSpop(hint) {
     spop({
         template:hint,
-        position:"top-center",  //提示位置
+        position:"bottom-right",  //提示位置
         group: 'submit-satus',  //每个组只能有一个小pop
         autoclose: 3000     //停留时间
     });
