@@ -1,5 +1,6 @@
 package com.hero.dao.impl;
 
+import com.alibaba.fastjson.JSONObject;
 import com.hero.dao.MenuDAO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -23,6 +24,12 @@ public class MenuDaoImpl implements MenuDAO {
     //查询所有菜单列表
     @Override
     public List<Map<String, Object>> selAllMenuListMap() {
-        return primaryJdbcTemplate.queryForList("select * from sys_menu");
+        return primaryJdbcTemplate.queryForList("select * from sys_menu order by rank ASC");
+    }
+
+    //修改菜单排序
+    @Override
+    public int updateMenuRank(JSONObject jsonParam) {
+        return primaryJdbcTemplate.update("update sys_menu set rank=? where id =?",jsonParam.getString("rank"),jsonParam.getString("id"));
     }
 }

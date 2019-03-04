@@ -110,6 +110,28 @@
 			<version>2.6.0</version>
 		</dependency>
 
+
+		<!--云通讯-->
+		<dependency>
+			<groupId>com.aliyun</groupId>
+			<artifactId>aliyun-java-sdk-dysmsapi</artifactId>
+			<version>1.0.0</version>
+		</dependency>
+		<dependency>
+			<groupId>com.aliyun</groupId>
+			<artifactId>aliyun-java-sdk-core</artifactId>
+			<version>3.2.3</version>
+		</dependency>
+
+
+		<!--中文转拼音-->
+		<dependency>
+			<groupId>com.belerweb</groupId>
+			<artifactId>pinyin4j</artifactId>
+			<version>2.5.0</version>
+		</dependency>
+
+
 		<!--二维码生成器-->
 		<dependency>
 			<groupId>com.google.zxing</groupId>

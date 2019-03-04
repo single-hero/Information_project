@@ -3,7 +3,14 @@ var verifyCode = null;
 $(function(){
     //初始化图形验证码
     verifyCode = new GVerify("codeCheckLogin");
-})
+
+    //键盘回车触发登录方法
+    $(this).keydown(function (e) {
+        if(e.which=='13'){
+            SystemLogin();
+        }
+    })
+});
 
 //系统登陆
 function SystemLogin(){
@@ -17,7 +24,7 @@ function SystemLogin(){
     // else{
         var loginName=$("#loginname").val();
         var password=$("#password").val();
-        var data={loginname:loginName,psw:password,info:"Sys_backstage"}
+        var data={loginname:loginName,psw:password,info:"Sys_backstage"};
         $.ajax({
             type:"POST",
             url:"/SysLogin/loginCheck",
@@ -28,7 +35,6 @@ function SystemLogin(){
                 if(data.state=="Success"){
                     // window.location=requestUrl()+"Index"
                     window.location="Index"
-                    // successSpop("登陆成功");
                 }
                 else {
                     document.getElementById("loginForm").reset();

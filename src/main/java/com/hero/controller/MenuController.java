@@ -1,11 +1,16 @@
 package com.hero.controller;
 
+import com.alibaba.fastjson.JSONObject;
 import com.hero.service.MenuService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
+
+import javax.servlet.http.HttpServletRequest;
 
 /**
  * 后台菜单管理Controller层
@@ -26,5 +31,12 @@ public class MenuController {
         mv.setViewName("/Menu/MenuList");
         mv.addObject("List",menuService.selAllMenuListMapService());
         return mv;
+    }
+
+
+    //菜单排序修改
+    @PutMapping(value = "/updateRank")
+    public @ResponseBody Object updateRank(HttpServletRequest request){
+        return menuService.updateRank((JSONObject) request.getAttribute("jsonParam"));
     }
 }

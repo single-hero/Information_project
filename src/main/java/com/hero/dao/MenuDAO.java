@@ -1,5 +1,7 @@
 package com.hero.dao;
 
+import com.alibaba.fastjson.JSONObject;
+
 import java.util.List;
 import java.util.Map;
 
@@ -12,4 +14,9 @@ public interface MenuDAO{
 
     //查询所有菜单列表
     List<Map<String,Object>> selAllMenuListMap();
+
+
+    //修改菜单排序
+    int updateMenuRank(JSONObject jsonParam);
+
 }

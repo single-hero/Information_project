@@ -74,7 +74,7 @@ $("#nav").click(function (e) {
 //增加tab方法
 function menuAddTab(id,name,url){
     //创建一个iframe标签
-    var content = '<iframe id="'+'myiframe'+id+'" scrolling="auto" frameborder="0"  src="' + url + '" style="width:100%;" onload="changeFrameHeight(id)"></iframe>';
+    var content = '<iframe name="contentIframe" id="'+'myiframe'+id+'" scrolling="auto" frameborder="0"  src="' + url + '" onload="changeFrameHeight()"></iframe>';
     //nthTabs.getTabList()获取所有选项卡,查看是否存在此选项卡,存在则选中,不存在则创建并选中
     if(JSON.stringify(nthTabs.getTabList()).indexOf("#myTab"+id)==-1){
         nthTabs.addTab({
@@ -89,9 +89,12 @@ function menuAddTab(id,name,url){
 
 
 //iframe自适应高度
-function changeFrameHeight(iframeid){
-    var ifm= document.getElementById(iframeid);
-    ifm.height=document.documentElement.clientHeight-127;       //-127 扣除顶部高度与工具栏高度
+function changeFrameHeight(){
+    var ifm= document.getElementsByName("contentIframe");
+    for(var i = 0;i< ifm.length;i++){
+        ifm[i].width = '100%';
+        ifm[i].height=document.documentElement.clientHeight-127+'px';       //-127 扣除顶部高度与工具栏高度
+    }
 }
 //屏幕监听,当屏幕分辨率改变则触发
 window.onresize=function(){

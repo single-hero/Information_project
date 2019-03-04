@@ -13,7 +13,7 @@ $(function () {
             columns: [{
                 title: '菜单名称',
                 field: 'menuName',
-                width: '10%',
+                width: '10%'
             },{
                 title: '状态',
                 field: 'state',
@@ -32,6 +32,10 @@ $(function () {
                     return '<input type="number" min="1" style="width: 60px; height: 30px;" onblur="editRank(this.value,'+row.id+')" value='+row.rank+'>';
                 }
             },{
+                title: '地址',
+                field: 'url',
+                width: '5%'
+            },{
                 title: '操作',
                 width: '10%'
             }],
@@ -43,9 +47,20 @@ $(function () {
     }
 });
 
+
 //排序
 function editRank(rank,id){
-    successSpop("修改成功");
-    setTimeout("window.location.reload()",2500)
-    var url = "<%=basePath%>Mess/editRank?id="+id+"&rank="+rank;
+    var data={rank:rank,id:id,info:"Sys_backstage"};
+    $.ajax({
+        type:"PUT",
+        url:"/SysMenu/updateRank",
+        dataType:'json',
+        data:{eParam:Encode(JSON.stringify(data))},
+        success:function () {
+            setTimeout("window.location.reload()",0);
+        },
+        error:function (data) {
+            errorSpop("修改失败!<br> ("+data.responseJSON.message+")");
+        }
+    });
 }

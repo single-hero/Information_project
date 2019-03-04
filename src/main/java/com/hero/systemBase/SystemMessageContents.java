@@ -19,7 +19,7 @@ public class SystemMessageContents {
 		public static final int MESSAGE_COMMON_PARAM_ERROR = 202; // 请求参数不完整
 		public static final int MESSAGE_COMMON_DATA_TYPE_ERROR = 203; // 数据类型有误
 		public static final int MESSAGE_COMMON_DATA_NULL_ERROR = 204; // 数据为空
-		public static final int MESSAGE_COMMON_DATA_JSON2VO_ERROR = 205; // JSON数据转化为VO对象异常
+		public static final int MESSAGE_COMMON_DATA_ERROR = 205; // 数据修改失败
 		public static final int MESSAGE_DIR_PATH_PROGRESS_ERROR = 206; // 目录组装失败
 		public static final int MESSAGE_SERVER_RESPONSE_NULL = 207; // 服务器返回数据为空,响应异常
 		public static final int MESSAGE_SERVER_PAGEINFO_RESPONSE_NULL = 208; // 查询分页请求参数有误

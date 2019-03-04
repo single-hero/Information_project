@@ -86,7 +86,7 @@ function errorSpop(hint) {
         position:"bottom-right",  //提示位置
         group: 'submit-satus',  //每个组只能有一个小pop
         style:'error',
-        autoclose: 5000     //停留时间
+        autoclose: 4000     //停留时间
     });
 }
 
@@ -108,7 +108,7 @@ function warningSpop(hint) {
         position:"bottom-right",  //提示位置
         group: 'submit-satus',  //每个组只能有一个小pop
         style:'warning',
-        autoclose: 5000     //停留时间
+        autoclose: 4000     //停留时间
     });
 }
 //默认提示
@@ -120,3 +120,6 @@ function defaultSpop(hint) {
         autoclose: 3000     //停留时间
     });
 }
+
+//屏蔽鼠标右键
+document.oncontextmenu = function(){return false;};
