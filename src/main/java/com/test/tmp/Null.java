@@ -8,5 +8,4 @@ package com.test.tmp;
 public class Null {
 
 
-
 }
